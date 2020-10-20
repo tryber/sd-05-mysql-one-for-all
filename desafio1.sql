@@ -45,6 +45,7 @@ album_id SMALLINT NOT NULL,
 FOREIGN KEY (album_id) REFERENCES album(album_id)
 ) ENGINE = InnoDB;
 
+INSERT INTO planos (plano, valor_plano) VALUES ('gratuito', 0), ('familiar', 7.99), ('universitario', 5.99);
 INSERT INTO usuarios (usuario, idade, plano_id) 
 VALUES ('Thati', 23, 1),
 ('Cintia', 35, 2),
@@ -59,18 +60,9 @@ FOREIGN KEY (usuario_id) REFERENCES usuarios(usuario_id),
 FOREIGN KEY (historico_de_reproducoes) REFERENCES cancoes(cancao_id)
 ) ENGINE = InnoDB;
 
-INSERT INTO historico (usuario_id, historico_de_reproducoes)
-VALUES (1, 1), (1, 6), (1, 14), (1, 16), (2, 13), (2, 17), (2, 2), (2, 15), (3, 4),
-(3, 16), (3, 6), (4, 3), (4, 18), (4, 11);
-
 INSERT INTO artista (artista) VALUES ('Walter Phoenix'), ('Peter Strong'), ('Lance Day'), ('Freedie Shannon');
 
 INSERT INTO album (album, artista_id) VALUES ('Envious', 1), ('Exuberant', 1), ('Hallowed Steam', 2), ('Incandescent', 3), ('Temporary Culture', 4);
-
-INSERT INTO planos (plano, valor_plano) VALUES ('gratuito', 0), ('familiar', 7.99), ('universitario', 5.99);
-
-INSERT INTO seguindo (usuario_id, seguindo_artistas)
-VALUES (1, 1), (1, 4), (1, 3), (2, 1), (2, 3), (3, 2), (3, 1), (4, 4);
 
 INSERT INTO cancoes (cancao, album_id) 
 VALUES ('Soul For Us', 1),
@@ -91,5 +83,12 @@ VALUES ('Soul For Us', 1),
 ('Thang Of Thunder', 4),
 ('Words Of Her Life', 4),
 ('Without My Streets', 4);
+
+INSERT INTO historico (usuario_id, historico_de_reproducoes)
+VALUES (1, 1), (1, 6), (1, 14), (1, 16), (2, 13), (2, 17), (2, 2), (2, 15), (3, 4),
+(3, 16), (3, 6), (4, 3), (4, 18), (4, 11);
+
+INSERT INTO seguindo (usuario_id, seguindo_artistas)
+VALUES (1, 1), (1, 4), (1, 3), (2, 1), (2, 3), (3, 2), (3, 1), (4, 4);
 
 -- https://stackoverflow.com/questions/1110349/how-can-i-define-a-composite-primary-key-in-sql
