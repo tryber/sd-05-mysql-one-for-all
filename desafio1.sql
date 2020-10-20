@@ -36,7 +36,7 @@ CREATE TABLE artistas (
 CREATE TABLE seguindo_artistas (
     usuario_id INT NOT NULL,
     artista_id INT NOT NULL,
-	  PRIMARY KEY (usuario_id, artista_id),
+	  PRIMARY KEY (usuario_id, artista_id)
     FOREIGN KEY (usuario_id) REFERENCES usuarios(usuario_id),
     FOREIGN KEY (artista_id) REFERENCES artistas(artista_id)
     -- CONSTRAINT nome_fk é um code que pode ser inserido no começo dessas linhas de FK
