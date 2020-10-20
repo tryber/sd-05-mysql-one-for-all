@@ -134,4 +134,3 @@ CREATE TABLE IF NOT EXISTS `SpotifyClone`.`usuarios_has_artistas` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-
