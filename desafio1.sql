@@ -9,7 +9,7 @@ CREATE TABLE `plans` (
   `plan_name` VARCHAR(45) NOT NULL,
   `plan_value` DECIMAL(5,2) NOT NULL,
   PRIMARY KEY (`plan_id`)
-) ENGINE = InnoDB;
+) engine = InnoDB;
 
 CREATE TABLE `users` (
   `user_id` INT UNIQUE NOT NULL AUTO_INCREMENT,
@@ -18,13 +18,13 @@ CREATE TABLE `users` (
   `plan_id` INT NOT NULL,
   FOREIGN KEY (`plan_id`)
   REFERENCES `plans` (`plan_id`)
-) ENGINE = InnoDB;
+) engine = InnoDB;
 
 CREATE TABLE `artists` (
   `artist_id` INT UNIQUE NOT NULL AUTO_INCREMENT,
   `artist_name` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`artist_id`)
-) ENGINE = innoDB;
+) engine = innoDB;
 
 CREATE TABLE `albuns` (
   `album_id` INT UNIQUE NOT NULL AUTO_INCREMENT,
@@ -33,7 +33,7 @@ CREATE TABLE `albuns` (
   PRIMARY KEY (`album_id`),
   FOREIGN KEY (`artist_id`)
   REFERENCES `artists` (`artist_id`)
-) ENGINE = innoDB;
+) engine = innoDB;
 
 CREATE TABLE `songs` (
   `song_id` INT UNIQUE NOT NULL AUTO_INCREMENT,
@@ -42,7 +42,7 @@ CREATE TABLE `songs` (
   PRIMARY KEY (`song_id`),
     FOREIGN KEY (`album_id`)
     REFERENCES `albuns` (`album_id`)
-) ENGINE = InnoDB;
+) engine = InnoDB;
 
 CREATE TABLE `follower` (
   `artist_id` INT NOT NULL,
@@ -52,7 +52,7 @@ CREATE TABLE `follower` (
     REFERENCES `artists` (`artist_id`),
     FOREIGN KEY (`user_id`)
     REFERENCES `users` (`user_id`)
-) ENGINE = InnoDB;
+) engine = InnoDB;
 
 CREATE TABLE `historic` (
   `song_id` INT NOT NULL,
@@ -62,7 +62,7 @@ CREATE TABLE `historic` (
     REFERENCES `users` (`user_id`),
     FOREIGN KEY (`song_id`)
     REFERENCES `songs` (`song_id`)
-) ENGINE = InnoDB;
+) engine = InnoDB;
 
 INSERT INTO plans (plan_name, plan_value)
 VALUES
