@@ -1,4 +1,3 @@
-#DROP VIEW IF EXISTS top_3_artistas;
 CREATE VIEW top_3_artistas AS
 SELECT art.artista AS artista, COUNT(*) AS seguidores FROM SpotifyClone.seguidores AS seg
 JOIN SpotifyClone.artistas AS art

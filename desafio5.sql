@@ -1,4 +1,3 @@
-#DROP VIEW IF EXISTS top_2_hits_do_momento;
 CREATE VIEW top_2_hits_do_momento AS
 SELECT can.cancao AS cancao, COUNT(his.id_usuario) AS reproducoes FROM SpotifyClone.historico AS his
 JOIN SpotifyClone.cancoes AS can
