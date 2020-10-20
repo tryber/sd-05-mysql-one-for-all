@@ -8,7 +8,7 @@
 -- nome da canção em ordem alfabética.
 -- 
 -- Sua VIEW deve retornar a seguinte informação, ao ser consultada:
-
+CREATE VIEW historico_reproducao_usuarios AS
 SELECT
 U.name AS `usuario`,
 C.name AS `nome`

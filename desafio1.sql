@@ -148,7 +148,7 @@ INSERT INTO cancoes(name, album_id) VALUES
 ('Diamond Power', 4),
 ("Honey, Let's Be Silly", 4),
 ('Thang Of Thunder', 5),
-('Words OF Her Life', 5),
+('Words Of Her Life', 5),
 ('Without My Streets', 5);
 
 INSERT INTO historico_de_reproducoes(usuario_id, cancoes_id) VALUES
