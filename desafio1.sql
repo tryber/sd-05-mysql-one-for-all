@@ -12,7 +12,7 @@ USE SpotifyClone;
 CREATE TABLE planos (
     plano_id INT PRIMARY KEY AUTO_INCREMENT,
     plano_nome VARCHAR(50) NOT NULL,
-    plano_valor DECIMAL(3,2) NOT NULL, -- qqr valor com 3 digitos e 2 decimais, entre -9.99 e 9.99
+    plano_valor DECIMAL(3,2) NOT NULL -- qqr valor com 3 digitos e 2 decimais, entre -9.99 e 9.99
     -- ref. https://dev.mysql.com/doc/refman/8.0/en/fixed-point-types.html
 ) engine = InnoDB;
 
@@ -26,13 +26,13 @@ CREATE TABLE usuarios (
     FOREIGN KEY (plano_id) REFERENCES planos(plano_id)
 ) engine = InnoDB; -- linha dada no repositorio do projeto
 
-CREATE TABLE artistas (
+CREATE TABLE artistas(
     artista_id INT PRIMARY KEY AUTO_INCREMENT,
     -- todos ids no caso podiam ser também SMALLINT e TINYINT, sendo números baixos
     artista_nome VARCHAR(50) UNIQUE NOT NULL
 ) ENGINE = InnoDB;
 
-CREATE TABLE albuns (
+CREATE TABLE albuns(
     album_id INT PRIMARY KEY AUTO_INCREMENT,
     album_titulo VARCHAR(100) NOT NULL,
     artista_id INT NOT NULL,
@@ -47,17 +47,17 @@ CREATE TABLE cancoes (
 ) engine = InnoDB;
 
 CREATE TABLE historico_de_reproducoes (
-    usuario_id NOT NULL,
-    cancao_id NOT NULL,
-    PRIMARY KEY (usuario_id, cancao_id)
+    usuario_id INT NOT NULL,
+    cancao_id INT NOT NULL,
+    PRIMARY KEY (usuario_id, cancao_id),
     FOREIGN KEY (usuario_id) REFERENCES usuarios(usuario_id),
     FOREIGN KEY (cancao_id) REFERENCES cancoes(cancao_id)
 ) engine = InnoDB;
 
-CREATE TABLE seguindo_artistas (
-    usuario_id NOT NULL,
-    artista_id NOT NULL,
-    PRIMARY KEY (usuario_id, artista_id)
+CREATE TABLE seguindo_artistas(
+    usuario_id INT NOT NULL,
+    artista_id INT NOT NULL,
+    PRIMARY KEY (usuario_id, artista_id),
     FOREIGN KEY (usuario_id) REFERENCES usuarios(usuario_id),
     FOREIGN KEY (artista_id) REFERENCES artistas(artista_id)
     -- CONSTRAINT nome_fk é um code que pode ser inserido no começo dessas linhas de FK
