@@ -6,6 +6,7 @@ describe('Queries de seleção', () => {
   let sequelize;
 
   beforeAll(async () => {
+    jest.setTimeout(10000);
     const importer = new Importer(
       { user: process.env.MYSQL_USER, password: process.env.MYSQL_PASSWORD, host: process.env.HOSTNAME },
     );
