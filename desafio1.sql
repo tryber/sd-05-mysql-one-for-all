@@ -64,8 +64,7 @@ INSERT INTO planos (plano_id, plano, valor_plano)
 VALUES
   (1, 'gratuito', 0),
   (2, 'familiar', 7.99),
-  (3, 'universitário', 5.99),
-  (4, 'gratuito', 0);
+  (3, 'universitário', 5.99);
   
 INSERT INTO artistas (artista_id, artista)
 VALUES
