@@ -104,7 +104,7 @@ INSERT INTO cancoes (nome_cancao, albuns_id, artista_id) VALUES
 ('Diamond Power', 4, 3),
 ("Honey, Let's Be Silly", 4, 3),
 ('Thang Of Thunder', 5, 4),
-('Words OF Her Life', 5, 4),
+('Words Of Her Life', 5, 4),
 ('Without My Streets', 5, 4);
 
 -- -----------------------------------------------------
@@ -144,17 +144,17 @@ CREATE TABLE IF NOT EXISTS `SpotifyClone`.`hreprodução` (
 ENGINE = InnoDB;
 
 INSERT INTO hreprodução (usuario_id, cancoes_id) VALUES
-(1, 12),
-(1, 8),
-(1, 3),
+(1, 1),
+(1, 6),
+(1, 16),
 (1, 14),
-(2, 5),
-(2, 18),
-(2, 9),
-(2, 6),
+(2, 13),
+(2, 17),
+(2, 2),
+(2, 15),
+(3, 4),
 (3, 16),
-(3, 14),
-(3, 8),
-(4, 2),
-(4, 17),
-(4, 1);
+(3, 6),
+(4, 3),
+(4, 18),
+(4, 11);
