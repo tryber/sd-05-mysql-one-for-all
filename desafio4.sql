@@ -5,5 +5,3 @@ ON art.id = seg.id_artista
 GROUP BY artista
 ORDER BY seguidores DESC, artista
 LIMIT 3;
-
-SELECT * FROM top_3_artistas;

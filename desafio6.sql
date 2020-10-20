@@ -8,5 +8,3 @@ ON usu.id_plano = pla.id) AS 'faturamento_medio',
 INNER JOIN usuarios AS usu
 ON usu.id_plano = pla.id) AS 'faturamento_total'
 FROM planos;
-
-SELECT * FROM faturamento_atual;

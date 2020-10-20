@@ -5,5 +5,3 @@ ON can.id = his.id_cancao
 GROUP BY can.id
 ORDER BY reproducoes DESC, cancao
 LIMIT 2;
-
-SELECT * FROM top_2_hits_do_momento;
