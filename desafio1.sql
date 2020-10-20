@@ -62,7 +62,7 @@ VALUES
 
 INSERT INTO planos (plano_nome, valor)
 VALUES
-('gratuito', 0),
+('gratuito', 0.00),
 ('universitário', 5.99),
 ('familiar', 7.99);
 
