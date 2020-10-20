@@ -8,7 +8,8 @@ CREATE TABLE usuarios(
 usuarioId int(4) PRIMARY KEY AUTO_INCREMENT NOT NULL,
 usuario varchar(100) NOT NULL,
 idade INT(3) NOT NULL,
-planoId INT(3) NOT NULL
+planoId INT(3) NOT NULL,
+FOREIGN KEY (planoId) REFERENCES planos(planoId)
 ) engine = InnoDB;
 
 CREATE TABLE planos(
