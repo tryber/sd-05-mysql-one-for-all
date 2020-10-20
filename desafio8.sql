@@ -7,3 +7,4 @@ DELETE FROM SpotifyClone.seguindo_artistas WHERE usuario_id = OLD.usuario_id;
 DELETE FROM SpotifyClone.historico_de_reproducoes WHERE usuario_id = OLD.usuario_id;
 END $$
 DELIMITER ;
+-- https://stackoverflow.com/questions/11818191/mysql-trigger-delete-from-table-after-delete
