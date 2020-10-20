@@ -87,25 +87,25 @@ FOREIGN KEY (`artista_id`)
     REFERENCES `SpotifyClone`.`albuns` (`albuns_id`))
 ENGINE = InnoDB;
 
-INSERT INTO cancoes (nome_cancao, artista_id, albuns_id) VALUES
-('Celebration Of More', 3, 4),
-('Dance With Her Own', 1, 1),
-('Diamond Power', 3, 4),
-('Fantasy For Me', 3, 4),
-('Home Forever', 3, 4),
-('Dance With Her Own', 3, 4),
-('Honey, Let''s Be Silly', 3, 4),
-('Honey, So Do I', 2, 3),
-('Reflections Of Magic', 1, 1),
-('Rock His Everything', 3, 4),
-('She Knows', 2, 3),
+INSERT INTO cancoes (nome_cancao, albuns_id, artista_id) VALUES
 ('Soul For Us', 1, 1),
-('Sweetie, Let''s Go Wild', 2, 3),
-('Thang Of Thunder', 4, 5),
-('Time Fireworks', 1, 2),
-('Troubles Of My Inner Fire', 1, 2),
-('Without My Streets', 4, 5),
-('Words Of Her Life', 4, 5);
+('Reflections Of Magic', 1, 1),
+('Dance With Her Own', 1, 1),
+('Troubles Of My Inner Fire', 2, 1),
+('Time Fireworks', 2, 1),
+('Magic Circus', 3, 2),
+('Honey, So Do I', 3, 2),
+("Sweetie, Let's Go Wild", 3, 2),
+('She Knows', 3, 2),
+('Fantasy For Me', 4, 3),
+('Celebration Of More', 4, 3),
+('Rock His Everything', 4, 3),
+('Home Forever', 4, 3),
+('Diamond Power', 4, 3),
+("Honey, Let's Be Silly", 4, 3),
+('Thang Of Thunder', 5, 4),
+('Words OF Her Life', 5, 4),
+('Without My Streets', 5, 4);
 
 -- -----------------------------------------------------
 -- Table `SpotifyClone`.`seguidores`
