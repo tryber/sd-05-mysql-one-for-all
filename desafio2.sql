@@ -6,6 +6,3 @@ SELECT COUNT(cancao) AS cancoes,
 FROM SpotifyClone.cancoes;
 
 SELECT * FROM estatisticas_musicais;
-
-Error Code: 1146. Table 'SpotifyClone.estatisticas_musicais' doesn't exist
-
