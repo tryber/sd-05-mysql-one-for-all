@@ -6,13 +6,13 @@ USE SpotifyClone;
 
 CREATE TABLE planos(
     plano_id INT PRIMARY KEY AUTO_INCREMENT,
-    plano VARCHAR(50) NOT NULL,
+    plano VARCHAR(50) UNIQUE NOT NULL,
     valor_plano DECIMAL(5,2) NOT NULL
 ) engine = InnoDB;
 
 CREATE TABLE usuarios(
     usuario_id INT PRIMARY KEY AUTO_INCREMENT,
-    usuario VARCHAR(50) NOT NULL,
+    usuario VARCHAR(50) UNIQUE NOT NULL,
     idade INT,
     plano_id INT NOT NULL,
     FOREIGN KEY (plano_id) REFERENCES planos(plano_id)  
@@ -20,7 +20,7 @@ CREATE TABLE usuarios(
 
 CREATE TABLE artistas(
     artista_id INT PRIMARY KEY AUTO_INCREMENT,
-    artista VARCHAR(50) NOT NULL
+    artista VARCHAR(50) UNIQUE NOT NULL
 ) engine = InnoDB;
 
 CREATE TABLE albuns(
@@ -32,21 +32,23 @@ CREATE TABLE albuns(
 
 CREATE TABLE cancoes(
     cancao_id INT PRIMARY KEY AUTO_INCREMENT,
-    cancao VARCHAR(50) NOT NULL,
+    cancao VARCHAR(50) UNIQUE NOT NULL,
     album_id INT NOT NULL,
     FOREIGN KEY (album_id) REFERENCES albuns(album_id)
 ) engine = InnoDB;
 
 CREATE TABLE historico(
-    historico_id INT PRIMARY KEY AUTO_INCREMENT,
-    historico_de_reproducoes VARCHAR(50) NOT NULL,
+    cancao_id INT NOT NULL,
     usuario_id INT NOT NULL,
+    PRIMARY KEY (cancao_id, usuario_id),
+    FOREIGN KEY (cancao_id) REFERENCES cancoes(cancao_id),
     FOREIGN KEY (usuario_id) REFERENCES usuarios(usuario_id)
 ) engine = InnoDB;
 
 CREATE TABLE seguidores(
     usuario_id INT NOT NULL,
     artista_id INT NOT NULL,
+    PRIMARY KEY (usuario_id, artista_id),
     FOREIGN KEY (usuario_id) REFERENCES usuarios(usuario_id),
     FOREIGN KEY (artista_id) REFERENCES artistas(artista_id)
 ) engine = InnoDB;
@@ -100,22 +102,22 @@ VALUES
   ("Words Of Her Life", 5),
   ("Without My Streets", 5);
   
-INSERT INTO historico (historico_de_reproducoes, usuario_id)
+INSERT INTO historico (cancao_id, usuario_id)
 VALUES
-  ("Soul For Us", 1),
-  ("Magic Circus", 1),
-  ("Diamond Power", 1),
-  ("Thang Of Thunder", 1),
-  ("Home Forever", 2),
-  ("Words Of Her Life", 2),
-  ("Reflections Of Magic", 2),
-  ("Honey, Let's Be Silly", 2),
-  ("Troubles Of My Inner Fire", 3),
-  ("Thang Of Thunder", 3),
-  ("Magic Circus", 3),
-  ("Dance With Her Own", 4),
-  ("Without My Streets", 4),
-  ("Celebration Of More", 4);
+  (1, 1),
+  (6, 1),
+  (14, 1),
+  (16, 1),
+  (13, 2),
+  (17, 2),
+  (2, 2),
+  (15, 2),
+  (4, 3),
+  (16, 3),
+  (6, 3),
+  (3, 4),
+  (18, 4),
+  (11, 4);
 
 INSERT INTO seguidores (usuario_id, artista_id)
 VALUES
