@@ -61,17 +61,17 @@ VALUES
   
 INSERT INTO artists (artist_name)
 VALUES
- ('Walter Phoenix'),
- ('Peter Strong'),
- ('Lance Day'),
- ('Freedie Shannon');
+  ('Walter Phoenix'),
+  ('Peter Strong'),
+  ('Lance Day'),
+  ('Freedie Shannon');
 
 INSERT INTO users (user_name, age, plan_id)
 VALUES
- ('Thati', 23, 1),
- ('Cintia', 35, 2),
- ('Bill', 20, 3),
- ('Roger', 45, 1);
+  ('Thati', 23, 1),
+  ('Cintia', 35, 2),
+  ('Bill', 20, 3),
+  ('Roger', 45, 1);
   
 INSERT INTO albums (album_name, artist_id)
 VALUES
