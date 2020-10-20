@@ -43,16 +43,16 @@ CREATE TABLE `cancoes`(
 ) engine = InnoDB;
 
 CREATE TABLE `seguindo_artista`(
-  --  `seguindo_id` INT UNIQUE AUTO_INCREMENT NOT NULL,
-    `usuario_id` INT NOT NULL,
+--  `seguindo_id` INT UNIQUE AUTO_INCREMENT NOT NULL,
+`usuario_id` INT NOT NULL,
     `artista_id` INT NOT NULL,
-	PRIMARY KEY (`usuario_id`, `artista_id`),
+    PRIMARY KEY (`usuario_id`, `artista_id`),
     CONSTRAINT `fk_usuario_id_artista` FOREIGN KEY (`usuario_id`) REFERENCES `usuarios` (`usuario_id`),
     CONSTRAINT `fk_artista_id_usuario` FOREIGN KEY (`artista_id`) REFERENCES `artistas` (`artista_id`)
 ) engine = InnoDB;
 
 CREATE TABLE `reproducao`(
-   -- `reproducao_id` INT UNIQUE AUTO_INCREMENT NOT NULL,
+    -- `reproducao_id` INT UNIQUE AUTO_INCREMENT NOT NULL,
     `usuario_id` INT NOT NULL,
     `cancao_id` INT NOT NULL,
     PRIMARY KEY (`usuario_id`, `cancao_id`),
