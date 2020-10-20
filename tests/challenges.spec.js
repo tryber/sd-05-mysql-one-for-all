@@ -365,7 +365,7 @@ describe('Queries de seleção', () => {
 describe('Queries de deleção', () => {
   let sequelize;
 
-  beforeAll(() => {
+  beforeAll(async () => {
     await restoreDB();
     jest.setTimeout(10000);
 
