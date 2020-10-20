@@ -40,17 +40,17 @@ CREATE TABLE cancoes(
 ) engine = InnoDB;
 
 CREATE TABLE usuarios_artistas(
-    id INT PRIMARY KEY auto_increment,
     usuario_id INT NOT NULL,
     artista_id INT NOT NULL,
+    PRIMARY KEY (usuario_id, artista_id),
     FOREIGN KEY (usuario_id) REFERENCES usuarios(id),
     FOREIGN KEY (artista_id) REFERENCES artistas(id)
 ) engine = InnoDB;
 
 CREATE TABLE usuarios_cancoes(
-    id INT PRIMARY KEY auto_increment,
     usuario_id INT NOT NULL,
     cancao_id INT NOT NULL,
+    PRIMARY KEY (usuario_id, cancao_id),
     FOREIGN KEY (usuario_id) REFERENCES usuarios(id),
     FOREIGN KEY (cancao_id) REFERENCES cancoes(id)
 ) engine = InnoDB;
