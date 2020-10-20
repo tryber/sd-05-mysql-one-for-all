@@ -1,3 +1,4 @@
+DROP VIEW IF EXISTS perfil_artistas;
 CREATE VIEW perfil_artistas AS
 SELECT art.artista AS artista,
 alb.album AS album,
@@ -9,3 +10,4 @@ JOIN albuns AS alb
 ON art.id = alb.id_artista
 GROUP BY album
 ORDER BY 3 DESC, 1, 2;
+#SELECT * FROM perfil_artistas;

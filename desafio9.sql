@@ -1,4 +1,5 @@
 USE SpotifyClone;
+DROP PROCEDURE IF EXISTS albuns_do_artista;
 DELIMITER $$
 CREATE PROCEDURE albuns_do_artista(IN SINGER VARCHAR(50))
 BEGIN
@@ -10,3 +11,4 @@ ON art.id = alb.id_artista
 WHERE artista LIKE SINGER;
 END $$
 DELIMITER ;
+#CALL albuns_do_artista('Walter Phoenix');
