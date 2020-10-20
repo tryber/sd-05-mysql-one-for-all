@@ -2,7 +2,7 @@ const { readFileSync } = require('fs');
 const { Sequelize } = require('sequelize');
 const restoreDB = require('./restoreDB');
 
-describe('Desafios iniciais', () => {
+describe('Queries de seleção', () => {
   let sequelize;
 
   beforeAll(async () => {
