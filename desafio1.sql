@@ -4,18 +4,18 @@ CREATE DATABASE SpotifyClone;
 
 USE SpotifyClone;
 
+CREATE TABLE planos(
+    id INT PRIMARY KEY auto_increment,
+    plano VARCHAR(50) NOT NULL,
+    valor_plano DECIMAL(5, 2) NOT NULL
+) engine = InnoDB;
+
 CREATE TABLE usuarios(
     id INT PRIMARY KEY auto_increment,
     usuario VARCHAR(50) NOT NULL,
     idade INT NOT NULL,
     plano_id INT NOT NULL,
     FOREIGN KEY (plano_id) REFERENCES planos(id)
-) engine = InnoDB;
-
-CREATE TABLE planos(
-    id INT PRIMARY KEY auto_increment,
-    plano VARCHAR(50) NOT NULL,
-    valor_plano DECIMAL(5, 2) NOT NULL
 ) engine = InnoDB;
 
 CREATE TABLE artistas(
@@ -55,6 +55,11 @@ CREATE TABLE usuarios_cancoes(
     FOREIGN KEY (cancao_id) REFERENCES cancoes(id)
 ) engine = InnoDB;
 
+INSERT INTO planos (plano, valor_plano)
+VALUES
+  ('gratuito', 0),
+  ('universitario', 5.99),
+  ('familiar', 7.99);
 
 INSERT INTO usuarios (usuario, idade, plano_id)
 VALUES
@@ -63,29 +68,12 @@ VALUES
   ('Bill', 20, 2),
   ('Roger', 45, 1);
 
-INSERT INTO planos (plano, valor_plano)
-VALUES
-  ('gratuito', 0),
-  ('universitario', 5.99),
-  ('familiar', 7.99);
-
 INSERT INTO artistas (artista)
 VALUES
   ('Walter Phoenix'),
   ('Peter Strong'),
   ('Lance Day'),
   ('Freedie Shannon');
-
-INSERT INTO usuarios_artistas (usuario_id, artista_id)
-VALUES
-  (1, 1),
-  (1, 4),
-  (1, 3),
-  (2, 1),
-  (2, 3),
-  (3, 2),
-  (3, 1),
-  (4, 4);
 
 INSERT INTO albuns (album, artista_id)
 VALUES
@@ -115,6 +103,17 @@ VALUES
   ("Thang Of Thunder", 4, 5),
   ("Words Of Her Life", 4, 5),
   ("Without My Streets", 4, 5);
+
+INSERT INTO usuarios_artistas (usuario_id, artista_id)
+VALUES
+  (1, 1),
+  (1, 4),
+  (1, 3),
+  (2, 1),
+  (2, 3),
+  (3, 2),
+  (3, 1),
+  (4, 4);
 
 INSERT INTO usuarios_cancoes (usuario_id, cancao_id)
 VALUES
