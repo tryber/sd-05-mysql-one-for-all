@@ -20,7 +20,8 @@ valor varchar(10)
 CREATE TABLE albuns(
 albumId int(4) PRIMARY KEY AUTO_INCREMENT NOT NULL,
 album varchar(50),
-artistaId int(4) NOT NULL
+artistaId int(4) NOT NULL,
+FOREIGN KEY (artistaId) REFERENCES artistas(artistaId)
 ) engine = InnoDB;
 
 CREATE TABLE artistas(
