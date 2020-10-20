@@ -28,7 +28,7 @@ CREATE TABLE IF NOT EXISTS `SpotifyClone`.`usuario` (
   `idade` INT NOT NULL,
   `nome_usuario` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`usuario_id`),
-	FOREIGN KEY (`plano_id`) REFERENCES `SpotifyClone`.`planos` (`plano_id`))
+FOREIGN KEY (`plano_id`) REFERENCES `SpotifyClone`.`planos` (`plano_id`))
 ENGINE = InnoDB;
 
 INSERT INTO SpotifyClone.usuario (nome_usuario, idade, plano_id) VALUES
@@ -75,12 +75,12 @@ INSERT INTO albuns (nome_album, artista_id) VALUES
 -- Table `SpotifyClone`.`canções`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `SpotifyClone`.`cancoes` (
-	`cancoes_id` INT NOT NULL AUTO_INCREMENT,
-	`nome_cancao` VARCHAR(60) NOT NULL,
-	`artista_id` INT NOT NULL,
-	`albuns_id` INT NOT NULL,
+`cancoes_id` INT NOT NULL AUTO_INCREMENT,
+`nome_cancao` VARCHAR(60) NOT NULL,
+`artista_id` INT NOT NULL,
+`albuns_id` INT NOT NULL,
   PRIMARY KEY (`cancoes_id`),
-	FOREIGN KEY (`artista_id`)
+FOREIGN KEY (`artista_id`)
     REFERENCES `SpotifyClone`.`artistas` (`artista_id`),
     FOREIGN KEY (`albuns_id`)
     REFERENCES `SpotifyClone`.`albuns` (`albuns_id`))
