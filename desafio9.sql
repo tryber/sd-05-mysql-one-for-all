@@ -21,6 +21,3 @@ AND ar.name = artista
 ORDER BY `album`;
 END $$
 DELIMITER ;
-
-
-
