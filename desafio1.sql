@@ -31,7 +31,7 @@ CREATE TABLE IF NOT EXISTS `SpotifyClone`.`usuario` (
   `idade` INT NOT NULL,
   `plano_id` INT NOT NULL,
   PRIMARY KEY (`usuario_id`),
-   CONSTRAINT `fk_usuario_plano1`
+    CONSTRAINT `fk_usuario_plano1`
     FOREIGN KEY (`plano_id`)
     REFERENCES `SpotifyClone`.`plano` (`plano_id`))
 ENGINE = InnoDB;
@@ -69,7 +69,7 @@ CREATE TABLE IF NOT EXISTS `SpotifyClone`.`cancoes` (
   `name` VARCHAR(100) NOT NULL,
   `album_id` INT NOT NULL,
   PRIMARY KEY (`cancoes_id`),
-   CONSTRAINT `fk_cancoes_album1`
+    CONSTRAINT `fk_cancoes_album1`
     FOREIGN KEY (`album_id`)
     REFERENCES `SpotifyClone`.`album` (`album_id`))
 ENGINE = InnoDB;
@@ -98,7 +98,7 @@ CREATE TABLE IF NOT EXISTS `SpotifyClone`.`seguindo_artistas` (
   `usuario_id` INT NOT NULL,
   `artista_id` INT NOT NULL,
   PRIMARY KEY (`usuario_id`, `artista_id`),
-   CONSTRAINT `fk_seguindo_artistas_usuario1`
+    CONSTRAINT `fk_seguindo_artistas_usuario1`
     FOREIGN KEY (`usuario_id`)
     REFERENCES `SpotifyClone`.`usuario` (`usuario_id`),
   CONSTRAINT `fk_seguindo_artistas_artista1`
