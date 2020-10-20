@@ -5,5 +5,5 @@ FOR EACH ROW
 BEGIN
 DELETE FROM SpotifyClone.seguindo_artista WHERE usuario_id = OLD.usuario_id;
 DELETE FROM SpotifyClone.reproducao WHERE usuario_id = OLD.usuario_id;
-END
-$$ DELIMITER ;
+END $$
+DELIMITER ;
