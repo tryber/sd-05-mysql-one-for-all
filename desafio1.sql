@@ -5,65 +5,63 @@ CREATE DATABASE SpotifyClone;
 USE SpotifyClone;
 
 CREATE TABLE `plans` (
-  `plan_id` INT NOT NULL AUTO_INCREMENT,
+  `plan_id` INT UNIQUE NOT NULL AUTO_INCREMENT,
   `plan_name` VARCHAR(45) NOT NULL,
   `plan_value` DECIMAL(5,2) NOT NULL,
   PRIMARY KEY (`plan_id`)
 ) ENGINE = InnoDB;
 
 CREATE TABLE `users` (
-  `user_id` INT NOT NULL UNIQUE AUTO_INCREMENT,
+  `user_id` INT UNIQUE NOT NULL AUTO_INCREMENT,
   `user_name` VARCHAR(45) NULL,
   `user_age` INT NOT NULL,
   `plan_id` INT NOT NULL,
   FOREIGN KEY (`plan_id`)
-  REFERENCES `SpotifyClone`.`plans` (`plan_id`)
+  REFERENCES `plans` (`plan_id`)
 ) ENGINE = InnoDB;
 
 CREATE TABLE `artists` (
-  `artist_id` INT NOT NULL UNIQUE AUTO_INCREMENT,
+  `artist_id` INT UNIQUE NOT NULL AUTO_INCREMENT,
   `artist_name` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`artist_id`)
 ) ENGINE = innoDB;
 
 CREATE TABLE `albuns` (
-  `album_id` INT NOT NULL UNIQUE AUTO_INCREMENT,
+  `album_id` INT UNIQUE NOT NULL AUTO_INCREMENT,
   `album_name` VARCHAR(45) NOT NULL,
   `artist_id` INT NOT NULL,
   PRIMARY KEY (`album_id`),
   FOREIGN KEY (`artist_id`)
-  REFERENCES `SpotifyClone`.`artists` (`artist_id`)
+  REFERENCES `artists` (`artist_id`)
 ) ENGINE = innoDB;
 
 CREATE TABLE `songs` (
-  `song_id` INT NOT NULL UNIQUE AUTO_INCREMENT,
+  `song_id` INT UNIQUE NOT NULL AUTO_INCREMENT,
   `album_id` INT NOT NULL,
   `song_name` VARCHAR(45) NULL,
   PRIMARY KEY (`song_id`),
     FOREIGN KEY (`album_id`)
-    REFERENCES `SpotifyClone`.`albuns` (`album_id`)
+    REFERENCES `albuns` (`album_id`)
 ) ENGINE = InnoDB;
 
 CREATE TABLE `follower` (
-  `follow_id` INT NOT NULL UNIQUE AUTO_INCREMENT,
   `artist_id` INT NOT NULL,
   `user_id` INT NOT NULL,
   PRIMARY KEY(`artist_id`, `user_id`),
     FOREIGN KEY (`artist_id`)
-    REFERENCES `SpotifyClone`.`artists` (`artist_id`),
+    REFERENCES `artists` (`artist_id`),
     FOREIGN KEY (`user_id`)
-    REFERENCES `SpotifyClone`.`users` (`user_id`)
+    REFERENCES `users` (`user_id`)
 ) ENGINE = InnoDB;
 
 CREATE TABLE `historic` (
-  `historic_id` INT NOT NULL UNIQUE AUTO_INCREMENT,
   `song_id` INT NOT NULL,
   `user_id` INT NOT NULL,
   PRIMARY KEY(`user_id`, `song_id`),
     FOREIGN KEY (`user_id`)
-    REFERENCES `SpotifyClone`.`users` (`user_id`),
+    REFERENCES `users` (`user_id`),
     FOREIGN KEY (`song_id`)
-    REFERENCES `SpotifyClone`.`songs` (`song_id`)
+    REFERENCES `songs` (`song_id`)
 ) ENGINE = InnoDB;
 
 INSERT INTO plans (plan_name, plan_value)
