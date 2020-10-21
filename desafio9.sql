@@ -4,7 +4,7 @@
 -- O nome do álbum, com o alias "album".
 -- Os resultados devem ser ordenados pelo nome do álbum em ordem alfabética.
 
-USE SpotifyClone;
+-- USE SpotifyClone;
 DELIMITER $$
 
 CREATE PROCEDURE albuns_do_artista(IN nomeArtista VARCHAR(50))

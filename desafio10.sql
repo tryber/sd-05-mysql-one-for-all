@@ -3,7 +3,7 @@
 -- Ao receber o código identificador da pessoa,
 -- exiba a quantidade de canções em seu histórico de reprodução.
 
-USE SpotifyClone;
+-- USE SpotifyClone;
 DELIMITER $$
 
 CREATE FUNCTION quantidade_musicas_no_historico(idUser INT)
