@@ -1,6 +1,6 @@
 DROP DATABASE IF EXISTS `SpotifyClone`;
 
-CREATE SCHEMA IF NOT EXISTS `SpotifyClone` ;
+CREATE DATABASE IF NOT EXISTS `SpotifyClone` ;
 USE `SpotifyClone` ;
 
 CREATE TABLE IF NOT EXISTS `SpotifyClone`.`planos` (
@@ -8,7 +8,7 @@ CREATE TABLE IF NOT EXISTS `SpotifyClone`.`planos` (
   `plano` VARCHAR(45) NULL,
   `valor_plano` DECIMAL NULL,
   PRIMARY KEY (`id_plano`)
-  )
+)
 ENGINE = InnoDB;
 
 CREATE TABLE IF NOT EXISTS `SpotifyClone`.`usuarios` (
@@ -16,7 +16,7 @@ CREATE TABLE IF NOT EXISTS `SpotifyClone`.`usuarios` (
   `usuario` VARCHAR(45) NOT NULL,
   `idade` INT NULL,
   `planos_id_plano` INT NOT NULL,
-  PRIMARY KEY (`usuario_id`, `planos_id_plano`),
+  PRIMARY KEY (`usuario_id`),
   CONSTRAINT `fk_usuarios_planos`
     FOREIGN KEY (`planos_id_plano`)
     REFERENCES `SpotifyClone`.`planos` (`id_plano`)
