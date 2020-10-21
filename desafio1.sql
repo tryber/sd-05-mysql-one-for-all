@@ -15,7 +15,7 @@ CREATE TABLE assinantes(
     usuario VARCHAR(50) NOT NULL,
     idade INT NOT NULL,
     plano_id INT NOT NULL,
-    FOREIGN KEY (plano_id) REFERENCES assinantes(usuario_id)
+    FOREIGN KEY (plano_id) REFERENCES assinantes(plano_id)
 ) engine = InnoDB;
 
 CREATE TABLE artistas(

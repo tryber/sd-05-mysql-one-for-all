@@ -7,7 +7,7 @@ describe('Queries de seleção', () => {
 
   beforeAll(async () => {
     await restoreDB();
-    jest.setTimeout(10000);
+    jest.setTimeout(15000);
 
     sequelize = new Sequelize(
       `mysql://${process.env.MYSQL_USER}:${process.env.MYSQL_PASSWORD}@${process.env.HOSTNAME}:3306/SpotifyClone`,
