@@ -4,18 +4,18 @@ CREATE DATABASE SpotifyClone;
 
 USE SpotifyClone;
 
+CREATE TABLE planos(
+    plano_id INT PRIMARY KEY AUTO_INCREMENT,
+    plano VARCHAR(30) NOT NULL,
+    valor_plano DECIMAL(3,2) NOT NULL
+) engine = InnoDB;
+
 CREATE TABLE assinantes(
     usuario_id INT PRIMARY KEY AUTO_INCREMENT,
     usuario VARCHAR(50) NOT NULL,
     idade INT NOT NULL,
     plano_id INT NOT NULL,
     FOREIGN KEY (plano_id) REFERENCES assinantes(usuario_id)
-) engine = InnoDB;
-
-CREATE TABLE planos(
-    plano_id INT PRIMARY KEY AUTO_INCREMENT,
-    plano VARCHAR(30) NOT NULL,
-    valor_plano DECIMAL(3,2) NOT NULL
 ) engine = InnoDB;
 
 CREATE TABLE artistas(
