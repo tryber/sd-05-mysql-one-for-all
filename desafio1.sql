@@ -43,21 +43,21 @@ CREATE TABLE IF NOT EXISTS `cancao` (
 ) engine = InnoDB;
 
 CREATE TABLE IF NOT EXISTS `seguindo` (
-  `id` INT(11) AUTO_INCREMENT,
+  -- `id` INT(11) AUTO_INCREMENT,
   `usuario_id` INT NOT NULL,
   `artista_id` INT NOT NULL,
-  PRIMARY KEY (`id`),
-  FOREIGN KEY (`usuario_id`) REFERENCES usuario(`id`),
-  FOREIGN KEY (`artista_id`) REFERENCES artista(`id`)
+  PRIMARY KEY (`usuario_id`, `artista_id`),
+  CONSTRAINT `fk_usuario_id_artista` FOREIGN KEY (`usuario_id`) REFERENCES usuario(`id`),
+  CONSTRAINT `fk_artista_id_usuario` FOREIGN KEY (`artista_id`) REFERENCES artista(`id`)
 ) engine = InnoDB;
 
 CREATE TABLE IF NOT EXISTS `reproducao` (
-  `id` INT(11) AUTO_INCREMENT,
+  -- `id` INT(11) AUTO_INCREMENT,
   `usuario_id` INT NOT NULL,
   `cancao_id` INT NOT NULL,
-  PRIMARY KEY (`id`),
-  FOREIGN KEY (`usuario_id`) REFERENCES usuario(`id`),
-  FOREIGN KEY (`cancao_id`) REFERENCES cancao(`id`)
+  PRIMARY KEY (`usuario_id`, `cancao_id`),
+  CONSTRAINT `fk_usuario_id_cancao` FOREIGN KEY (`usuario_id`) REFERENCES usuario(`id`),
+  CONSTRAINT `fk_cancao_id_usuario` FOREIGN KEY (`cancao_id`) REFERENCES cancao(`id`)
 ) engine = InnoDB;
 
 INSERT INTO `plano` (plano, valor)
