@@ -6,3 +6,12 @@
 -- Em caso de empate, ordene os resultados pelo nome da canção em ordem alfabética.
 -- Queremos apenas o top 2 de músicas mais tocadas.
 
+CREATE VIEW top_2_hits_do_momento AS
+SELECT
+c.cancao_titulo AS 'cancao',
+COUNT(h.usuario_id) AS 'reproducoes' 
+FROM SpotifyClone.historico_de_reproducoes AS h
+JOIN SpotifyClone.cancoes AS c ON c.cancao_id = h.cancao_id
+GROUP BY `cancao`
+ORDER BY 2 DESC, 1 ASC
+LIMIT 2;
