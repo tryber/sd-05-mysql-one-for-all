@@ -25,7 +25,7 @@ CREATE TABLE IF NOT EXISTS `SpotifyClone`.`usuario` (
   `nome_usuario` VARCHAR(45) NULL,
   `idade` INT NULL,
   `plano_id` INT NOT NULL,
-  PRIMARY KEY (`id`, `plano_id`),
+  PRIMARY KEY (`id`),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE,
   INDEX `fk_usuario_plano_idx` (`plano_id` ASC) VISIBLE,
   CONSTRAINT `fk_usuario_plano`
@@ -52,7 +52,7 @@ CREATE TABLE IF NOT EXISTS `SpotifyClone`.`album` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `nome_album` VARCHAR(45) NULL,
   `artista_id` INT NOT NULL,
-  PRIMARY KEY (`id`, `artista_id`),
+  PRIMARY KEY (`id`),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE,
   INDEX `fk_album_artista1_idx` (`artista_id` ASC) VISIBLE,
   CONSTRAINT `fk_album_artista1`
