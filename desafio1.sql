@@ -140,15 +140,14 @@ INSERT INTO `SpotifyClone`.`planos` (id_plano, plano, valor_plano)
 VALUES
 (1, 'gratuito',	0),
 (2,	'familiar',	7.99),
-(3,	'universitário',	5.99),
-(4,	'gratuito',	0);
+(3,	'universitário',	5.99);
 
 INSERT INTO `SpotifyClone`.`usuarios` (usuario_id,usuario,idade,planos_id_plano)
 VALUES
 (1,'Thati',23,1),
 (2,'Cintia',35,2),
 (3,'Bill',20,3),
-(4,'Roger',45,4);
+(4,'Roger',45,1);
 
 INSERT INTO `SpotifyClone`.`historic` (historic_id, usuarios_usuario_id,cancoes_id_cancao)
 VALUES
@@ -213,3 +212,4 @@ VALUES
 (16,"Thang Of Thunder",5),
 (17,"Words Of Her Life",5),
 (18,"Without My Streets",5);
+
