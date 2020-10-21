@@ -13,7 +13,7 @@ RETURNS INT READS SQL DATA
 BEGIN
 DECLARE numReproducoes INT;
 SELECT COUNT(cancao_id) FROM SpotifyClone.historico_de_reproducoes WHERE usuario_id = idUser
-INTO numReproducoes;
+LIMIT 1 INTO numReproducoes;
 RETURN numReproducoes;
 END $$
 
