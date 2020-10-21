@@ -77,24 +77,24 @@ INSERT INTO SpotifyClone.usuarios (usuario, idade, plano_id) VALUES
 ('Roger', 45, 1);
 
 INSERT INTO musica (musica, album_id, artista_id) VALUES
-('Soul For Us', 1, 1),
-('Reflections Of Magic', 1, 1),
-('Dance With Her Own', 1, 1),
-('Troubles Of My Inner Fire', 2, 1),
-('Time Fireworks', 2, 1),
-('Magic Circus', 3, 2),
-('Honey, So Do I', 3, 2),
-('Sweetie, Lets Go Wild', 3, 2),
-('She Knows', 3, 2),
-('Fantasy For Me', 4, 3),
-('Celebration Of More', 4, 3),
-('Rock His Everything', 4, 3),
-('Home Forever', 4, 3),
-('Diamond Power', 4, 3),
-('Honey, Lets Be Silly', 4, 3),
-('Thang Of Thunder', 5, 4),
-('Words Of Her Life', 5, 4),
-('Without My Streets', 5, 4);
+("Soul For Us", 1, 1),
+("Reflections Of Magic", 1, 1),
+("Dance With Her Own", 1, 1),
+("Troubles Of My Inner Fire", 2, 1),
+("Time Fireworks", 2, 1),
+("Magic Circus", 3, 2),
+("Honey, So Do I", 3, 2),
+("Sweetie, Let's Go Wild", 3, 2),
+("She Knows", 3, 2),
+("Fantasy For Me", 4, 3),
+("Celebration Of More", 4, 3),
+("Rock His Everything", 4, 3),
+("Home Forever", 4, 3),
+("Diamond Power", 4, 3),
+("Honey, Let's Be Silly", 4, 3),
+("Thang Of Thunder", 5, 4),
+("Words Of Her Life", 5, 4),
+("Without My Streets", 5, 4);
 
 INSERT INTO seguindo (usuario_id, artista_id) VALUES
 (1, 1),
