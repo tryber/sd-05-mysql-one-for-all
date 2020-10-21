@@ -6,7 +6,7 @@ describe('Queries de seleção', () => {
   let sequelize;
 
   beforeAll(async () => {
-    await restoreDB();
+   /*  await restoreDB(); */
     jest.setTimeout(10000);
 
     sequelize = new Sequelize(
@@ -15,6 +15,7 @@ describe('Queries de seleção', () => {
   });
 
   afterAll(async () => {
+   /*  await restoreDB(); */
     await sequelize.query('DROP DATABASE SpotifyClone;', { type: 'RAW' });
     sequelize.close();
   });
@@ -385,7 +386,7 @@ describe('Queries de deleção', () => {
     try {
       await importer.import('./desafio1.sql');
     }
-    catch(error) {
+    catch (error) {
       console.log('Erro ao restaurar o dump!');
     }
 
