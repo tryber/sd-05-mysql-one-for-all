@@ -18,4 +18,5 @@ END $$
 
 DELIMITER ;
 
--- SELECT quantidade_musicas_no_historico(3); -- 3 sendo o id de 'Bill', retorno certo no WorkBench
+-- SELECT quantidade_musicas_no_historico(3);
+-- 3 sendo o id de 'Bill', retorno certo no WorkBench
