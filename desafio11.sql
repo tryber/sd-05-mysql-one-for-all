@@ -7,11 +7,12 @@
 CREATE VIEW cancoes_premium AS
 SELECT
 c.cancao_titulo AS 'nome',
-COUNT(h.usuario_id) AS 'reproducoes',
+COUNT(h.usuario_id) AS 'reproducoes'
 FROM SpotifyClone.historico_de_reproducoes AS h
-JOIN SpotifyClone.cancoes AS ON c.cancao_id = h.cancao_id;
+JOIN SpotifyClone.cancoes AS c ON c.cancao_id = h.cancao_id
 JOIN SpotifyClone.usuarios AS u ON u.usuario_id = h.usuario_id WHERE u.plano_id IN(2,3)
 GROUP BY 1 ORDER BY 1;
+
 
 -- [Honestidade acadêmica]
 -- No decorrer do projeto, recebi ajuda pontual de alunos e consultei os PR seguintes:
