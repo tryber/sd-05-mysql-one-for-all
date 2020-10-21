@@ -11,6 +11,12 @@ plan_price DECIMAL(5, 2),
 PRIMARY KEY (plan_id)
 ) engine = InnoDB;
 
+CREATE TABLE artists(
+artist_id INT AUTO_INCREMENT,
+artist_name VARCHAR(255) NOT NULL,
+PRIMARY KEY (artist_id)
+)  engine = InnoDB;
+
 CREATE TABLE users(
 user_id INT UNIQUE AUTO_INCREMENT NOT NULL,
 user_name VARCHAR(100) NOT NULL,
@@ -19,12 +25,6 @@ plan_id INT NOT NULL,
 PRIMARY KEY (user_id),
 FOREIGN KEY (plan_id) REFERENCES plans(plan_id)
 ) engine = InnoDB;
-
-CREATE TABLE artists(
-artist_id INT AUTO_INCREMENT,
-artist_name VARCHAR(255) NOT NULL,
-PRIMARY KEY (artist_id)
-)  engine = InnoDB;
 
 CREATE TABLE albums(
 album_id INT AUTO_INCREMENT,
@@ -57,6 +57,19 @@ PRIMARY KEY (user_id, artist_id),
 FOREIGN KEY (user_id) REFERENCES users(user_id),
 FOREIGN KEY (artist_id) REFERENCES artists(artist_id)
 ) engine = InnoDB;
+  
+INSERT INTO plans (plan_type, plan_price)
+VALUES
+('gratuito', 0),
+('familiar', 7.99),
+('universitário', 5.99);
+
+INSERT INTO artists (artist_name)
+VALUES
+('Walter Phoenix'),
+('Peter Strong'),
+('Lance Day'),
+('Freedie Shannon');
 
 INSERT INTO users (user_name, age, plan_id)
 VALUES
@@ -64,19 +77,6 @@ VALUES
 ('Cintia', 35, 2),
 ('Bill', 20, 3),
 ('Roger', 45, 1);
-  
-INSERT INTO plans (plan_type, plan_price)
-VALUES
-('gratuito', 0),
-('familiar', 7.99),
-('universitário', 5.99);
-  
-INSERT INTO artists (artist_name)
-VALUES
-('Walter Phoenix'),
-('Peter Strong'),
-('Lance Day'),
-('Freedie Shannon');
   
 INSERT INTO albums (album_title, artist_id)
 VALUES
