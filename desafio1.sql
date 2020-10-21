@@ -19,7 +19,7 @@ musica VARCHAR(100) NOT NULL,
 album_id INT NOT NULL,
 artista_id INT NOT NULL,
 FOREIGN KEY (album_id) references album(album_id),
-FOREIGN KEY (artista_id) references artista(artista_id)
+FOREIGN KEY (artista_id) references artistas(artista_id)
 )engine=InnoDB;
 
 CREATE TABLE planos(
