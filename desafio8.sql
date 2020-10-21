@@ -1,3 +1,4 @@
+-- Trigger
 USE SpotifyClone;
 DELIMITER $$
 
