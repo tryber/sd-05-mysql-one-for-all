@@ -1,3 +1,4 @@
+DROP DATABASE IF EXISTS SpotifyClone;
 create database SpotifyClone;
 use SpotifyClone;
 
@@ -71,9 +72,9 @@ INSERT INTO cancoes (cancao, id_artista, id_album) VALUES
 ('Diamond Power', 3, 4),
 ('Fantasy For Me', 3, 4),
 ('Home Forever', 3, 4),
-('Dance With Her Own', 3, 4),
 ('Honey, Let''s Be Silly', 3, 4),
 ('Honey, So Do I', 2, 3),
+('Magic Circus', 2, 3),
 ('Reflections Of Magic', 1, 1),
 ('Rock His Everything', 3, 4),
 ('She Knows', 2, 3),

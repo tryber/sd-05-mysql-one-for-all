@@ -10,4 +10,4 @@ JOIN albuns AS alb
 ON art.id = alb.id_artista
 GROUP BY album
 ORDER BY 3 DESC, 1, 2;
-#SELECT * FROM perfil_artistas;
+SELECT * FROM perfil_artistas;

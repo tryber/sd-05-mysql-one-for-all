@@ -1,4 +1,4 @@
-DROP VIEW IF EXISTS cancoes_premium;
+#DROP VIEW IF EXISTS cancoes_premium;
 CREATE VIEW cancoes_premium AS
 SELECT can.cancao AS nome,
 COUNT(his.id_cancao) AS reproducoes
