@@ -4,6 +4,7 @@
 
 -- Gatilho pra excluir usuários pontos de atenção à sintaxe ; ao final de cada DELETE
 
+
 DELIMITER $$
 CREATE TRIGGER trigger_usuario_delete
 BEFORE DELETE ON SpotifyClone.assinantes
