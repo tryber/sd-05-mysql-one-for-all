@@ -6,7 +6,7 @@ describe('Queries de seleção', () => {
   let sequelize;
 
   beforeAll(async () => {
-   /*  await restoreDB(); */
+    await restoreDB();
     jest.setTimeout(10000);
 
     sequelize = new Sequelize(
@@ -15,7 +15,6 @@ describe('Queries de seleção', () => {
   });
 
   afterAll(async () => {
-   /*  await restoreDB(); */
     await sequelize.query('DROP DATABASE SpotifyClone;', { type: 'RAW' });
     sequelize.close();
   });
