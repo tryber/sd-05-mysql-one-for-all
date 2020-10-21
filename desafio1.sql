@@ -47,19 +47,16 @@ CREATE TABLE usuários(
 ) engine = InnoDB;
 
 CREATE TABLE reproduções(
-    id INT AUTO_INCREMENT,
     usuário INT,
     canção INT,
-    PRIMARY KEY(id),
+    PRIMARY KEY(usuário, canção),
     FOREIGN KEY (usuário) REFERENCES usuários(id),
-    FOREIGN KEY (canção) REFERENCES canções(id),
-    UNIQUE `reprodução_index` (`usuário`, `canção`)
+    FOREIGN KEY (canção) REFERENCES canções(id)
 ) engine = InnoDB;
 
 CREATE TABLE seguidores(
-    id INT AUTO_INCREMENT,
     usuário INT, artista INT, 
-    PRIMARY KEY(id), FOREIGN KEY (usuário) REFERENCES usuários(id), FOREIGN KEY (artista) REFERENCES artistas(id),
+    PRIMARY KEY(usuário, artista), FOREIGN KEY (usuário) REFERENCES usuários(id), FOREIGN KEY (artista) REFERENCES artistas(id),
     UNIQUE `seguidor_index` (`usuário`, `artista`)
 ) engine = InnoDB;
 
