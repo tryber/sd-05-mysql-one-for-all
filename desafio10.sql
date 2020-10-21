@@ -11,7 +11,7 @@ RETURNS INT READS SQL DATA
 
 BEGIN
 DECLARE numReproducoes INT;
-SELECT COUNT(cancao_id) FROM SpotifyClone.historico_de_reproducoes WHERE usuario_id = idUser
+SELECT COUNT(h.cancao_id) FROM SpotifyClone.historico_de_reproducoes AS h WHERE h.usuario_id = idUser
 INTO numReproducoes;
 RETURN numReproducoes;
 END $$
