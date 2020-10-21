@@ -99,7 +99,7 @@ VALUES
 ('Diamond Power', 4),
 ("Honey, Let's Be Silly", 4),
 ('Thang Of Thunder', 5),
-('Words OF Her Life', 5),
+('Words Of Her Life', 5),
 ('Without My Streets', 5);
 
 INSERT INTO follower (user_id, artist_id)

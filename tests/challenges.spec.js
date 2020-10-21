@@ -19,7 +19,7 @@ describe('Queries de seleção', () => {
     sequelize.close();
   });
 
-  describe('Normalize as tabelas para a 3ª Forma Normal', () => {
+  describe.only('Normalize as tabelas para a 3ª Forma Normal', () => {
     const hasForeignKey = async (table, referencedTable) => {
       const [{ REFERENCE_COUNT: referenceCount }] = await sequelize.query(
         `SELECT COUNT(COLUMN_NAME) AS REFERENCE_COUNT
@@ -182,7 +182,7 @@ describe('Queries de seleção', () => {
     });
   });
 
-  describe('Exibe as estatísticas musicais', () => {
+  describe.only('Exibe as estatísticas musicais', () => {
     it('Verifica o desafio 2', async () => {
       const challengeQuery = readFileSync('desafio2.sql', 'utf8');
 
@@ -194,7 +194,7 @@ describe('Queries de seleção', () => {
     });
   });
 
-  describe('Exibe o histórico de reprodução para cada pessoa usuária', () => {
+  describe.only('Exibe o histórico de reprodução para cada pessoa usuária', () => {
     it('Verifica o desafio 3', async () => {
       const challengeQuery = readFileSync('desafio3.sql', 'utf8');
 
@@ -222,7 +222,7 @@ describe('Queries de seleção', () => {
     });
   });
 
-  describe('Exibe top 3 artistas com maior quantidade de pessoas seguidoras', () => {
+  describe.only('Exibe top 3 artistas com maior quantidade de pessoas seguidoras', () => {
     it('Verifica o desafio 4', async () => {
       const challengeQuery = readFileSync('desafio4.sql', 'utf8');
 
