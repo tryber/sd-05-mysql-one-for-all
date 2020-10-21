@@ -19,7 +19,7 @@ describe('Queries de seleção', () => {
     sequelize.close();
   });
 
-  describe.only('Normalize as tabelas para a 3ª Forma Normal', () => {
+  describe('Normalize as tabelas para a 3ª Forma Normal', () => {
     const hasForeignKey = async (table, referencedTable) => {
       const [{ REFERENCE_COUNT: referenceCount }] = await sequelize.query(
         `SELECT COUNT(COLUMN_NAME) AS REFERENCE_COUNT
@@ -182,7 +182,7 @@ describe('Queries de seleção', () => {
     });
   });
 
-  describe.only('Exibe as estatísticas musicais', () => {
+  describe('Exibe as estatísticas musicais', () => {
     it('Verifica o desafio 2', async () => {
       const challengeQuery = readFileSync('desafio2.sql', 'utf8');
 
