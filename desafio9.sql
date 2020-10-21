@@ -3,8 +3,8 @@
 -- O nome do álbum, com o alias "album".
 -- Os resultados devem ser ordenados pelo nome do álbum em ordem alfabética
 
--- Ponto de atenção nos parâmetros deve ser indicado o tipo
-USE SpotifyClone;
+-- Ponto de atenção nos parâmetros deve ser indicado o tipo e usado com o WHERE
+-- USE SpotifyClone;
 -- CALL albuns_do_artista('Walter Phoenix');
 
 DELIMITER $$
@@ -13,7 +13,7 @@ BEGIN
 SELECT art.artista AS artista, alb.album AS album
 FROM SpotifyClone.artistas AS art
 INNER JOIN SpotifyClone.albuns AS alb ON art.artista_id = alb.artista_id
-GROUP BY alb.album_id
+WHERE art.artista = artista
 ORDER BY 2;
 END $$
 DELIMITER ;

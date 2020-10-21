@@ -6,14 +6,14 @@
 -- DROP FUNCTION quantidade_musicas_no_historico;
 
 DELIMITER $$
-CREATE FUNCTION quantidade_musicas_no_historico(usuario_id INT)
+CREATE FUNCTION quantidade_musicas_no_historico(id INT)
 RETURNS INT READS SQL DATA
 BEGIN
-DECLARE quantidade_musicas_no_historico INT;
+DECLARE qtd INT;
 SELECT COUNT(usuario_id)
 FROM SpotifyClone.historico
-WHERE usuario_id = usuario_id
-INTO quantidade_musicas_no_historico;
-RETURN quantidade_musicas_no_historico;
+WHERE id = usuario_id
+INTO qtd;
+RETURN qtd;
 END $$
 DELIMITER ;
