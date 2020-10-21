@@ -1,5 +1,7 @@
 create view historico_reproducao_usuarios as
-select usuario, cancao from historico_de_reproducoes
+select usuario as usuario,
+cancao as nome
+from historico_de_reproducoes
 inner join usuarios
 on usuarios.usuarioId = historico_de_reproducoes.usuario_id
 inner join cancoes
