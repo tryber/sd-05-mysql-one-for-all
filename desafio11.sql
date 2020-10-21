@@ -9,7 +9,7 @@ USE SpotifyClone;
 
 CREATE VIEW cancoes_premium AS SELECT
 m.cancoes AS nome,
-h.cancoes_id AS reproducoes
+COUNT(h.cancoes_id) AS reproducoes
 FROM SpotifyClone.musicas AS m
 INNER JOIN SpotifyClone.historico AS h ON m.cancoes_id = h.cancoes_id
 INNER JOIN SpotifyClone.assinantes AS a ON a.usuario_id = h.usuario_id
