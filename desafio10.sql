@@ -6,12 +6,13 @@
 -- USE SpotifyClone;
 DELIMITER $$
 
+-- DROP FUNCTION IF EXISTS quantidade_musicas_no_historico;
 CREATE FUNCTION quantidade_musicas_no_historico(idUser INT)
 RETURNS INT READS SQL DATA
 
 BEGIN
 DECLARE numReproducoes INT;
-SELECT COUNT(h.cancao_id) FROM SpotifyClone.historico_de_reproducoes AS h WHERE h.usuario_id = idUser
+SELECT COUNT(cancao_id) FROM SpotifyClone.historico_de_reproducoes WHERE usuario_id = idUser
 INTO numReproducoes;
 RETURN numReproducoes;
 END $$
