@@ -10,7 +10,7 @@ CREATE TABLE album(
 album_id INT PRIMARY KEY auto_increment,
 album VARCHAR(100) NOT NULL,
 artista_id INT NOT NULL,
-FOREIGN KEY (artista_id) references artista(artista_id)
+FOREIGN KEY (artista_id) references artistas(artista_id)
 )engine=InnoDB;
 
 CREATE TABLE musica(
@@ -121,5 +121,3 @@ INSERT INTO historico (usuario_id, musica_id) VALUES
 (4, 3),
 (4, 18),
 (4, 11);
-
-
