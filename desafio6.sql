@@ -1,3 +1,4 @@
+-- Source: https://pt.stackoverflow.com/questions/3455/formatar-casas-decimais-diretamente-no-comando-sql-em-firebird
 CREATE VIEW faturamento_atual AS
 SELECT
 CAST(MIN(P.valor) AS DECIMAL(5,2)) AS faturamento_minimo,
