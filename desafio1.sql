@@ -107,7 +107,7 @@ VALUES
 ("Words Of Her Life", 5),
 ("Without My Streets", 5);
 
-INSERT INTO songs_history (user_id, music_id)
+INSERT INTO songs_history (user_id, song_id)
 VALUES
 (1, 1),
 (1, 6),
