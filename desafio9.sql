@@ -4,6 +4,8 @@
 -- Os resultados devem ser ordenados pelo nome do álbum em ordem alfabética
 
 -- Ponto de atenção nos parâmetros deve ser indicado o tipo
+USE SpotifyClone;
+-- CALL albuns_do_artista('Walter Phoenix');
 
 DELIMITER $$
 CREATE PROCEDURE albuns_do_artista (IN artista VARCHAR(100))
