@@ -1,3 +1,4 @@
+-- Referência: query desenvolvida com a ajuda de Sidnei Ramos
 DELIMITER $$
 CREATE TRIGGER trigger_usuario_delete
     BEFORE DELETE ON usuários
