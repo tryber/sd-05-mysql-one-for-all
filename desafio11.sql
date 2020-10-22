@@ -1,7 +1,3 @@
-USE SpotifyClone;
-
-DROP VIEW IF EXISTS cancoes_premium;
-
 CREATE VIEW cancoes_premium AS
 SELECT C.cancao AS 'nome', COUNT(H.cancao_id) AS 'reproducoes'
 FROM SpotifyClone.cancoes AS C, SpotifyClone.historico AS H, SpotifyClone.usuarios AS U
