@@ -7,77 +7,71 @@ USE SpotifyClone;
 
 CREATE TABLE IF NOT EXISTS `planos`(
     `id` TINYINT NOT NULL AUTO_INCREMENT,
-    `tipo_plano` VARCHAR(15) NOT NULL DEFAULT 'gratuito',
-    `valor_plano` DECIMAL(5, 2) NULL DEFAULT 0.00,
+    `tipo_plano` VARCHAR(15) NOT NULL,
+    `valor_plano` DECIMAL(5, 2) NOT NULL,
     PRIMARY KEY(`id`)
-) engine = InnoDB
-DEFAULT CHARACTER SET = utf8;
+) engine = InnoDB;
 
 CREATE TABLE IF NOT EXISTS `usuarios`(
     `id` INT NOT NULL AUTO_INCREMENT,
-    `nome_usuario` VARCHAR(50) NULL DEFAULT NULL,
-    `idade` TINYINT NULL DEFAULT NULL,
-    `plano_id` TINYINT NULL DEFAULT NULL,
+    `nome_usuario` VARCHAR(50),
+    `idade` TINYINT NULL,
+    `plano_id` TINYINT NULL,
     PRIMARY KEY(`id`),
     CONSTRAINT `fk_tipos_planos`
     FOREIGN KEY (`plano_id`)
     REFERENCES `planos` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION
-) engine = InnoDB
-DEFAULT CHARACTER SET = utf8;
+) engine = InnoDB;
 
 
 
 CREATE TABLE IF NOT EXISTS `artistas`(
     `id` INT NOT NULL AUTO_INCREMENT,
-    `nome_artista` VARCHAR(50) NULL DEFAULT NULL,
+    `nome_artista` VARCHAR(50) NULL,
     PRIMARY KEY(`id`)
-) engine = InnoDB
-DEFAULT CHARACTER SET = utf8;
+) engine = InnoDB;
 
 CREATE TABLE IF NOT EXISTS `albuns`(
     `id` INT NOT NULL AUTO_INCREMENT,
-    `titulo_album` VARCHAR(50) NULL DEFAULT NULL,
-    `artista_id` INT NULL DEFAULT NULL,
+    `titulo_album` VARCHAR(50) NULL,
+    `artista_id` INT NULL,
     PRIMARY KEY(`id`),
     CONSTRAINT `fk_nomes_artistas`
     FOREIGN KEY (`artista_id`)
     REFERENCES `SpotifyClone`.`artistas` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION
-) engine = InnoDB
-DEFAULT CHARACTER SET = utf8;
+) engine = InnoDB;
 
 CREATE TABLE IF NOT EXISTS `musicas`(
     `id` INT NOT NULL AUTO_INCREMENT,
-    `cançoes` VARCHAR(50) NULL DEFAULT NULL,
-    `album_id` INT NULL DEFAULT NULL,
+    `cancoes` VARCHAR(50) NULL ,
+    `album_id` INT NULL ,
     PRIMARY KEY(`id`),
   CONSTRAINT `fk_nomes_albuns`
   FOREIGN KEY (`album_id`)
   REFERENCES `SpotifyClone`.`albuns` (`id`)
   ON DELETE NO ACTION
   ON UPDATE NO ACTION
-) engine = InnoDB
-DEFAULT CHARACTER SET = utf8;
+) engine = InnoDB;
 
-CREATE TABLE IF NOT EXISTS `histórico_de_reproduçoes`(
+CREATE TABLE IF NOT EXISTS `historico_de_reproducoes`(
     `usuario_id` INT NOT NULL,
-    `cançao_id` INT NOT NULL,
-    PRIMARY KEY(`usuario_id`, `cançao_id`),
+    `cancao_id` INT NOT NULL,
+    PRIMARY KEY(`usuario_id`, ` cancao_id`),
     CONSTRAINT `fk_nomes_usuarios`
     FOREIGN KEY (`usuario_id`)
     REFERENCES `SpotifyClone`.`usuarios` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-    CONSTRAINT `fk_nomes_cançoes`
-    FOREIGN KEY (`cançao_id`)
+    CONSTRAINT `fk_nomes_cancoes`
+    FOREIGN KEY (`cancao_id`)
     REFERENCES `SpotifyClone`.`musicas` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION
-) engine = InnoDB
-DEFAULT CHARACTER SET = utf8;
+) engine = InnoDB;
 
 CREATE TABLE IF NOT EXISTS `seguidores`(
     `usuario_id` INT NOT NULL,
@@ -93,61 +87,58 @@ CREATE TABLE IF NOT EXISTS `seguidores`(
     REFERENCES `SpotifyClone`.`artistas` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION
-) engine = InnoDB
-DEFAULT CHARACTER SET = utf8;
+) engine = InnoDB;
 
-INSERT INTO `planos` (`id`,`tipo_plano`,`valor_plano`) 
+INSERT INTO `planos` (`tipo_plano`,`valor_plano`) 
 VALUES
-(null ,DEFAULT, DEFAULT ),
-(null,'familiar', 7.99 ),
-(null,'universitário',5.99);
+('familiar', 7.99 ),
+('universitário',5.99);
 
-INSERT INTO `usuarios` (`id`,`nome_usuario`,`idade`, `plano_id`) 
+INSERT INTO `usuarios` (`nome_usuario`,`idade`, `plano_id`) 
 VALUES
-(NULL ,'Thati', 23, 1 ),
-(NULL,'Cintia', 35, 2 ),
-(NULL,'Bill', 20, 3),
-(NULL, 'Roger', 45, 1);
+('Thati', 23, 1 ),
+('Cintia', 35, 2 ),
+('Bill', 20, 3),
+('Roger', 45, 1);
 
-INSERT INTO `artistas` (`id`,`nome_artista`) 
+INSERT INTO `artistas` (`nome_artista`) 
 VALUES
-(NULL ,'Walter Phoenix'),
-(NULL,'Peter Strong'),
-(NULL,'Lance Day'),
-(NULL, 'Freedie Shannon');
+('Walter Phoenix'),
+('Peter Strong'),
+('Lance Day'),
+('Freedie Shannon');
 
-SELECT * FROM MUSICAS;
 
-INSERT INTO `albuns` (`id`,`titulo_album`, `artista_id`) 
+INSERT INTO `albuns` (`titulo_album`, `artista_id`) 
 VALUES
-(NULL ,'Envious', 1),
-(NULL,'Exuberant', 1),
-(NULL,'Hallowed Steam', 2),
-(NULL, 'Incandescent', 3),
-(NULL, 'Temporary Culture', 4);
+('Envious', 1),
+('Exuberant', 1),
+('Hallowed Steam', 2),
+('Incandescent', 3),
+('Temporary Culture', 4);
 
-INSERT INTO `musicas` (`id`,`cançoes`, `album_id`) 
+INSERT INTO `musicas` (`cancoes`, `album_id`) 
 VALUES
-(NULL ,'Soul For Us', 1),
-(NULL ,'Troubles Of My Inner Fire', 2),
-(NULL ,'Magic Circus', 3),
-(NULL ,'Fantasy For Me', 4),
-(NULL ,'Thang Of Thunder', 4),
-(NULL ,'Reflections Of Magic', 1),
-(NULL ,'Dance With Her Own', 1),
-(NULL ,'Time Fireworks', 2),
-(NULL ,'Honey, So Do I', 3),
-(NULL ,'Sweetie, Let\'s Go Wild', 3),
-(NULL ,'She Knows', 3),
-(NULL ,'Celebration Of More', 4),
-(NULL ,'Rock His Everything', 4),
-(NULL ,'Home Forever', 4),
-(NULL ,'Diamond Power', 4),
-(NULL ,'Honey, Let\'s Be Silly', 4),
-(NULL ,'Words Of Her Life', 5),
-(NULL ,' Without My Streets', 5);
+('Soul For Us', 1),
+('Troubles Of My Inner Fire', 2),
+('Magic Circus', 3),
+('Fantasy For Me', 4),
+('Thang Of Thunder', 4),
+('Reflections Of Magic', 1),
+('Dance With Her Own', 1),
+('Time Fireworks', 2),
+('Honey, So Do I', 3),
+('Sweetie, Let\'s Go Wild', 3),
+('She Knows', 3),
+('Celebration Of More', 4),
+('Rock His Everything', 4),
+('Home Forever', 4),
+('Diamond Power', 4),
+('Honey, Let\'s Be Silly', 4),
+('Words Of Her Life', 5),
+('Without My Streets', 5);
 
-INSERT INTO `histórico_de_reproduçoes` (`usuario_id`,`cançao_id`) 
+INSERT INTO `historico_de_reproducoes` (`usuario_id`,` cancao_id`) 
 VALUES
 (1, 1),
 (1, 3),
@@ -174,4 +165,7 @@ VALUES
 (3, 1),
 (4, 4);
 
-SELECT * FROM musicas;
+
+-- remove select
+--  remover valores default
+-- remover todos ids null nos inserts
