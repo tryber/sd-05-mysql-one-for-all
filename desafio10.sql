@@ -18,15 +18,17 @@ END $$
 DELIMITER ;
 */
 
+USE SpotifyClone;
 DELIMITER $$
 
 CREATE FUNCTION quantidade_musicas_no_historico(idUser INT)
 RETURNS INT READS SQL DATA
 BEGIN
 DECLARE quantidadeMusicas INT;
-SELECT COUNT(*) INTO quantidadeMusicas
-FROM SpotifyClone.reproduções
-WHERE usuario = idUser;
+SELECT COUNT(*)  
+FROM SpotifyClone.reproduções AS r
+WHERE r.usuário = idUser
+INTO quantidadeMusicas;
 RETURN quantidadeMusicas;
 
 END $$
