@@ -91,6 +91,7 @@ CREATE TABLE IF NOT EXISTS `seguidores`(
 
 INSERT INTO `planos` (`tipo_plano`,`valor_plano`) 
 VALUES
+('gratuito', 0.00)
 ('familiar', 7.99 ),
 ('universitário',5.99);
 
@@ -164,8 +165,3 @@ VALUES
 (3, 2),
 (3, 1),
 (4, 4);
-
-
--- remove select
---  remover valores default
--- remover todos ids null nos inserts
