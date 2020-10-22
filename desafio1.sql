@@ -4,7 +4,6 @@ CREATE DATABASE SpotifyClone;
 
 USE SpotifyClone;
 
-
 CREATE TABLE IF NOT EXISTS `planos`(
     `id` TINYINT NOT NULL AUTO_INCREMENT,
     `tipo_plano` VARCHAR(15) NOT NULL,
@@ -40,7 +39,7 @@ CREATE TABLE IF NOT EXISTS `albuns`(
     PRIMARY KEY(`id`),
     CONSTRAINT `fk_nomes_artistas`
     FOREIGN KEY (`artista_id`)
-    REFERENCES `SpotifyClone`.`artistas` (`id`)
+    REFERENCES `artistas` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION
 ) engine = InnoDB;
@@ -52,7 +51,7 @@ CREATE TABLE IF NOT EXISTS `musicas`(
     PRIMARY KEY(`id`),
   CONSTRAINT `fk_nomes_albuns`
   FOREIGN KEY (`album_id`)
-  REFERENCES `SpotifyClone`.`albuns` (`id`)
+  REFERENCES `albuns` (`id`)
   ON DELETE NO ACTION
   ON UPDATE NO ACTION
 ) engine = InnoDB;
@@ -60,15 +59,15 @@ CREATE TABLE IF NOT EXISTS `musicas`(
 CREATE TABLE IF NOT EXISTS `historico_de_reproducoes`(
     `usuario_id` INT NOT NULL,
     `cancao_id` INT NOT NULL,
-    PRIMARY KEY(`usuario_id`, ` cancao_id`),
+    PRIMARY KEY(`usuario_id`, `cancao_id`),
     CONSTRAINT `fk_nomes_usuarios`
     FOREIGN KEY (`usuario_id`)
-    REFERENCES `SpotifyClone`.`usuarios` (`id`)
+    REFERENCES `usuarios` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
     CONSTRAINT `fk_nomes_cancoes`
     FOREIGN KEY (`cancao_id`)
-    REFERENCES `SpotifyClone`.`musicas` (`id`)
+    REFERENCES `musicas` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION
 ) engine = InnoDB;
@@ -79,19 +78,19 @@ CREATE TABLE IF NOT EXISTS `seguidores`(
     PRIMARY KEY(`usuario_id`, `artista_id`),
     CONSTRAINT `fk_nomes_usuarios_seguidores`
     FOREIGN KEY (`usuario_id`)
-    REFERENCES `SpotifyClone`.`usuarios` (`id`)
+    REFERENCES `usuarios` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
     CONSTRAINT `fk_nomes_artistas_seguidores`
     FOREIGN KEY (`artista_id`)
-    REFERENCES `SpotifyClone`.`artistas` (`id`)
+    REFERENCES `artistas` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION
 ) engine = InnoDB;
 
 INSERT INTO `planos` (`tipo_plano`,`valor_plano`) 
 VALUES
-('gratuito', 0.00)
+('gratuito', 0.00),
 ('familiar', 7.99 ),
 ('universitário',5.99);
 
@@ -139,12 +138,13 @@ VALUES
 ('Words Of Her Life', 5),
 ('Without My Streets', 5);
 
-INSERT INTO `historico_de_reproducoes` (`usuario_id`,` cancao_id`) 
+INSERT INTO `historico_de_reproducoes` (`usuario_id`,`cancao_id`) 
 VALUES
 (1, 1),
 (1, 3),
 (1, 15),
 (1, 5),
+(2, 3),
 (2, 14),
 (2, 17),
 (2, 6),
