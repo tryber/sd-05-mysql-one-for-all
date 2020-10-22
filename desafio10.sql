@@ -10,10 +10,9 @@ CREATE FUNCTION quantidade_musicas_no_historico(id INT)
 RETURNS INT READS SQL DATA
 BEGIN
 DECLARE qtd INT;
-SELECT COUNT(usuario_id)
+SELECT COUNT(*) INTO qtd
 FROM SpotifyClone.historico
-WHERE id = usuario_id
-INTO qtd;
+WHERE id = usuario_id;
 RETURN qtd;
 END $$
 DELIMITER ;
