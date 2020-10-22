@@ -3,12 +3,11 @@
 -- A primeira coluna deve exibir o nome da canção, com o alias "nome";
 -- A segunda coluna deve exibir a quantidade de pessoas que já escutaram aquela canção, com o alias "reproducoes";
 -- Seus resultados devem estar agrupados pelo nome da canção e ordenados em ordem alfabética.
-USE SpotifyClone;
 
 -- DROP VIEW cancoes_premium;
 
-CREATE VIEW cancoes_premium AS SELECT
-m.cancoes AS nome,
+CREATE VIEW cancoes_premium AS
+SELECT m.cancoes AS nome,
 COUNT(h.cancoes_id) AS reproducoes
 FROM SpotifyClone.musicas AS m
 INNER JOIN SpotifyClone.historico AS h ON m.cancoes_id = h.cancoes_id
