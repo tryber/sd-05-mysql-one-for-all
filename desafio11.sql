@@ -1,3 +1,4 @@
+CREATE VIEW cancoes_premium AS
 SELECT c.título AS nome,
 COUNT(r.usuário) AS reproducoes
 FROM SpotifyClone.canções AS c
