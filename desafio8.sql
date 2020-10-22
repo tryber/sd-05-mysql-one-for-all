@@ -4,13 +4,12 @@
 
 -- Gatilho pra excluir usuários pontos de atenção à sintaxe ; ao final de cada DELETE
 
-
 DELIMITER $$
 CREATE TRIGGER trigger_usuario_delete
-BEFORE DELETE ON SpotifyClone.assinantes
+BEFORE DELETE ON assinantes
 FOR EACH ROW
 BEGIN
-DELETE FROM SpotifyClone.historico WHERE usuario_id = OLD.usuario_id;
-DELETE FROM SpotifyClone.seguidores WHERE usuario_id = OLD.usuario_id;
+DELETE FROM historico WHERE usuario_id = OLD.usuario_id;
+DELETE FROM seguidores WHERE usuario_id = OLD.usuario_id;
 END $$
 DELIMITER ;
