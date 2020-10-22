@@ -1,9 +1,9 @@
 DELIMITER $$
 CREATE TRIGGER trigger_usuario_delete
-    AFTER DELETE ON usuários
+    BEFORE DELETE ON usuários
     FOR EACH ROW
 BEGIN
-DELETE FROM seguidores WHERE seguidores.usuário = usuários.id;
-DELETE FROM reproduções WHERE reproduções.usuário = usuários.id;
+DELETE FROM seguidores WHERE seguidores.usuário = OLD.id;
+DELETE FROM reproduções WHERE reproduções.usuário = OLD.id;
 END; $$
 DELIMITER ;
