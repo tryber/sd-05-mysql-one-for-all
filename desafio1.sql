@@ -53,46 +53,46 @@ CREATE TABLE IF NOT EXISTS `musicas`(
     `id` INT NOT NULL AUTO_INCREMENT,
     `cançoes` VARCHAR(50) NULL DEFAULT NULL,
     `album_id` INT NULL DEFAULT NULL,
-     PRIMARY KEY(`id`),
-	 CONSTRAINT `fk_nomes_albuns`
-	 FOREIGN KEY (`album_id`)
-	 REFERENCES `SpotifyClone`.`albuns` (`id`)
-	 ON DELETE NO ACTION
-	 ON UPDATE NO ACTION
+    PRIMARY KEY(`id`),
+  CONSTRAINT `fk_nomes_albuns`
+  FOREIGN KEY (`album_id`)
+  REFERENCES `SpotifyClone`.`albuns` (`id`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION
 ) engine = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
 CREATE TABLE IF NOT EXISTS `histórico_de_reproduçoes`(
     `usuario_id` INT NOT NULL,
     `cançao_id` INT NOT NULL,
-     PRIMARY KEY(`usuario_id`, `cançao_id`),
-	 CONSTRAINT `fk_nomes_usuarios`
-	 FOREIGN KEY (`usuario_id`)
-	 REFERENCES `SpotifyClone`.`usuarios` (`id`)
-	 ON DELETE NO ACTION
-	 ON UPDATE NO ACTION,
-     CONSTRAINT `fk_nomes_cançoes`
-	 FOREIGN KEY (`cançao_id`)
-	 REFERENCES `SpotifyClone`.`musicas` (`id`)
-	 ON DELETE NO ACTION
-	 ON UPDATE NO ACTION
+    PRIMARY KEY(`usuario_id`, `cançao_id`),
+    CONSTRAINT `fk_nomes_usuarios`
+    FOREIGN KEY (`usuario_id`)
+    REFERENCES `SpotifyClone`.`usuarios` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+    CONSTRAINT `fk_nomes_cançoes`
+    FOREIGN KEY (`cançao_id`)
+    REFERENCES `SpotifyClone`.`musicas` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION
 ) engine = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
 CREATE TABLE IF NOT EXISTS `seguidores`(
     `usuario_id` INT NOT NULL,
     `artista_id` INT NOT NULL,
-     PRIMARY KEY(`usuario_id`, `artista_id`),
-	 CONSTRAINT `fk_nomes_usuarios_seguidores`
-	 FOREIGN KEY (`usuario_id`)
-	 REFERENCES `SpotifyClone`.`usuarios` (`id`)
-	 ON DELETE NO ACTION
-	 ON UPDATE NO ACTION,
-     CONSTRAINT `fk_nomes_artistas_seguidores`
-	 FOREIGN KEY (`artista_id`)
-	 REFERENCES `SpotifyClone`.`artistas` (`id`)
-	 ON DELETE NO ACTION
-	 ON UPDATE NO ACTION
+    PRIMARY KEY(`usuario_id`, `artista_id`),
+    CONSTRAINT `fk_nomes_usuarios_seguidores`
+    FOREIGN KEY (`usuario_id`)
+    REFERENCES `SpotifyClone`.`usuarios` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+    CONSTRAINT `fk_nomes_artistas_seguidores`
+    FOREIGN KEY (`artista_id`)
+    REFERENCES `SpotifyClone`.`artistas` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION
 ) engine = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
