@@ -1,6 +1,9 @@
 DROP DATABASE IF EXISTS SpotifyClone;
+
 CREATE DATABASE IF NOT EXISTS SpotifyClone ;
+
 USE SpotifyClone ;
+
 CREATE TABLE IF NOT EXISTS planos (
   id_plano INT AUTO_INCREMENT,
   plano VARCHAR(45) NULL,
@@ -8,6 +11,21 @@ CREATE TABLE IF NOT EXISTS planos (
   PRIMARY KEY (id_plano)
 )
 ENGINE = InnoDB;
+
+-- ------------------
+-- SpotfyClone me quebra
+-- ------------------
+
+INSERT INTO planos (plano, valor_plano)
+VALUES
+('gratuito',  0),
+('familiar',  7.99),
+('universitário', 5.99);
+
+-- ------------------
+-- SpotfyClone me quebra
+-- ------------------
+
 CREATE TABLE IF NOT EXISTS usuarios (
   usuario_id INT AUTO_INCREMENT,
   usuario VARCHAR(45) NOT NULL,
@@ -19,12 +37,44 @@ CREATE TABLE IF NOT EXISTS usuarios (
     REFERENCES planos (id_plano)
 )
 ENGINE = InnoDB;
+
+-- ------------------
+-- SpotfyClone me quebra
+-- ------------------
+
+INSERT INTO usuarios (usuario,idade,planos_id_plano)
+VALUES
+('Thati',23,1),
+('Cintia',35,2),
+('Bill',20,3),
+('Roger',45,1);
+
+-- ------------------
+-- SpotfyClone me quebra
+-- ------------------
+
 CREATE TABLE IF NOT EXISTS artistas (
   artist_id INT NOT NULL,
   artista VARCHAR(99) NOT NULL,
   PRIMARY KEY (artist_id)
 )
 ENGINE = InnoDB;
+
+-- ------------------
+-- SpotfyClone me quebra
+-- ------------------
+
+INSERT INTO artistas (artist_id,artista)
+VALUES
+(1,'Walter Phoenix'),
+(2,'Peter Strong'),
+(3,'Lance Day'),
+(4,'Freedie Shannon');
+
+-- ------------------
+-- teste me quebra
+-- ------------------
+
 CREATE TABLE IF NOT EXISTS albuns (
   album_id INT NOT NULL,
   album VARCHAR(100) NULL,
@@ -35,6 +85,22 @@ CREATE TABLE IF NOT EXISTS albuns (
     REFERENCES artistas (artist_id)
 )
 ENGINE = InnoDB;
+
+-- ------------------
+-- SpotfyClone me quebra
+-- ------------------
+
+INSERT INTO albuns (album_id,album,artistas_artist_id)
+VALUES
+(1,'Envious',1),
+(2,'Exuberant',1),
+(3,'Hallowed Steam',2),
+(4,'Incandescent',3),
+(5,'Temporary Culture',4);
+
+-- ------------------
+-- SpotfyClone me quebra
+-- ------------------
 CREATE TABLE IF NOT EXISTS cancoes (
   id_cancao INT AUTO_INCREMENT,
   cancao VARCHAR(50) NOT NULL,
@@ -45,54 +111,10 @@ CREATE TABLE IF NOT EXISTS cancoes (
     REFERENCES albuns (album_id)
 )
 ENGINE = InnoDB;
-CREATE TABLE IF NOT EXISTS reproducao (
-  usuarios_usuario_id INT NOT NULL,
-  cancoes_id_cancao INT NOT NULL,
-  PRIMARY KEY (cancoes_id_cancao, usuarios_usuario_id),
-  CONSTRAINT fk_usuarios_has_cancoes_usuarios1
-    FOREIGN KEY (usuarios_usuario_id)
-    REFERENCES usuarios (usuario_id),
-  CONSTRAINT fk_usuarios_has_cancoes_cancoes1
-    FOREIGN KEY (cancoes_id_cancao)
-    REFERENCES cancoes (id_cancao)
-)
-ENGINE = InnoDB;
-CREATE TABLE IF NOT EXISTS seguindo_artista (
-  usuario_id INT NOT NULL,
-  artist_id INT NOT NULL,
-  PRIMARY KEY (usuario_id, artist_id),
-  CONSTRAINT fk_usuarios_has_artistas_usuarios1
-    FOREIGN KEY (usuario_id)
-    REFERENCES usuarios (usuario_id),
-  CONSTRAINT fk_usuarios_has_artistas_artistas1
-    FOREIGN KEY (artist_id)
-    REFERENCES artistas (artist_id)
-)
-ENGINE = InnoDB;
-INSERT INTO planos (plano, valor_plano)
-VALUES
-('gratuito',  0),
-('familiar',  7.99),
-('universitário', 5.99);
-INSERT INTO usuarios (usuario,idade,planos_id_plano)
-VALUES
-('Thati',23,1),
-('Cintia',35,2),
-('Bill',20,3),
-('Roger',45,1);
-INSERT INTO artistas (artist_id,artista)
-VALUES
-(1,'Walter Phoenix'),
-(2,'Peter Strong'),
-(3,'Lance Day'),
-(4,'Freedie Shannon');
-INSERT INTO albuns (album_id,album,artistas_artist_id)
-VALUES
-(1,'Envious',1),
-(2,'Exuberant',1),
-(3,'Hallowed Steam',2),
-(4,'Incandescent',3),
-(5,'Temporary Culture',4);
+
+-- ------------------
+-- SpotfyClone me quebra
+-- ------------------
 INSERT INTO cancoes (cancao,albuns_album_id)
 VALUES
 ('Soul For Us',1),
@@ -113,6 +135,26 @@ VALUES
 ('Thang Of Thunder',5),
 ('Words Of Her Life',5),
 ('Without My Streets',5);
+
+-- ------------------
+-- SpotfyClone me quebra
+-- ------------------
+CREATE TABLE IF NOT EXISTS reproducao (
+  usuarios_usuario_id INT NOT NULL,
+  cancoes_id_cancao INT NOT NULL,
+  PRIMARY KEY (cancoes_id_cancao, usuarios_usuario_id),
+  CONSTRAINT fk_usuarios_has_cancoes_usuarios1
+    FOREIGN KEY (usuarios_usuario_id)
+    REFERENCES usuarios (usuario_id),
+  CONSTRAINT fk_usuarios_has_cancoes_cancoes1
+    FOREIGN KEY (cancoes_id_cancao)
+    REFERENCES cancoes (id_cancao)
+)
+ENGINE = InnoDB;
+
+-- ------------------
+-- SpotfyClone me quebra
+-- ------------------
 INSERT INTO reproducao (usuarios_usuario_id,cancoes_id_cancao)
 VALUES
 (1,1),
@@ -129,6 +171,26 @@ VALUES
 (4,2),
 (4,18),
 (4,11);
+
+-- ------------------
+-- SpotfyClone me quebra
+-- ------------------
+CREATE TABLE IF NOT EXISTS seguindo_artista (
+  usuario_id INT NOT NULL,
+  artist_id INT NOT NULL,
+  PRIMARY KEY (usuario_id, artist_id),
+  CONSTRAINT fk_usuarios_has_artistas_usuarios1
+    FOREIGN KEY (usuario_id)
+    REFERENCES usuarios (usuario_id),
+  CONSTRAINT fk_usuarios_has_artistas_artistas1
+    FOREIGN KEY (artist_id)
+    REFERENCES artistas (artist_id)
+)
+ENGINE = InnoDB;
+
+-- ------------------
+-- SpotfyClone me quebra
+-- ------------------
 INSERT INTO seguindo_artista (usuario_id,artist_id)
 VALUES
 (1,1),
