@@ -11,5 +11,5 @@ FROM SpotifyClone.songs AS sg
 INNER JOIN SpotifyClone.songs_history AS sh ON sh.song_id = sg.song_id
 INNER JOIN SpotifyClone.users AS us ON us.user_id = sh.user_id
 WHERE us.plan_id IN(2,3)
-GROUP BY song_id
+GROUP BY sg.song_id
 ORDER BY 1;
