@@ -6,13 +6,13 @@
 -- CALL albuns_do_artista('Walter Phoenix');
 
 DELIMITER $$
-CREATE PROCEDURE albuns_do_artista(IN nome VARCHAR(100))
+CREATE PROCEDURE albuns_do_artista(IN artista VARCHAR(100))
 BEGIN
 SELECT art.artist_name AS 'artista',
 alb.album_title AS 'album'
 FROM SpotifyClone.artists AS art
-JOIN SpotifyClone.albums AS alb ON alb.artist_id = art.id
-WHERE art.artist_name = nome
+JOIN SpotifyClone.albums AS alb ON alb.artist_id = art.artist_id
+WHERE art.artist_name = artista
 ORDER BY `album`;
 END $$
 DELIMITER ;
