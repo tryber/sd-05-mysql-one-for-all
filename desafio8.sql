@@ -17,4 +17,3 @@ DELIMITER ;
 
 -- Error Code: 1451. Cannot delete or update a parent row: a foreign key constraint fails (`spotifyclone`.`historico_de_reproducoes`, CONSTRAINT `fk_nomes_usuarios` FOREIGN KEY (`usuario_id`) REFERENCES `usuarios` (`id`))
 -- o código em DÚVIDA foi comentado na linha 3
- 
