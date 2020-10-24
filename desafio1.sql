@@ -1,3 +1,4 @@
+-- https://sqlzoo.net/wiki/SQL_Tutorial
 DROP DATABASE IF EXISTS SpotifyClone;
 CREATE DATABASE SpotifyClone;
 USE SpotifyClone;

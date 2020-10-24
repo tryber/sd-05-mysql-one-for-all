@@ -4,6 +4,8 @@ SELECT
   songs.song_title AS 'nome'
 FROM
   SpotifyClone.users AS users
+
+-- https://sqlzoo.net/wiki/The_JOIN_operation
 JOIN
   SpotifyClone.song_history AS song_history 
 ON
