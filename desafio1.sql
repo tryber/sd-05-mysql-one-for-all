@@ -1,13 +1,3 @@
-/* 
-Seu desafio agora é pegar toda a estrutura que você criou com base na planilha na seção anterior e transformá-la em código SQL. Os detalhes estão a seguir:
-
-Crie um banco com o nome de SpotifyClone;
-
-Providencie as queries necessárias para criar tabelas normalizadas que atendam aos requisitos descritos na seção anterior;
-
-Providencie as queries necessárias para popular as tabelas de acordo com os dados listados na seção anterior;
-
-Crie um arquivo de configurações desafio1.json, que mapeará em qual tabela e coluna se encontram as informações necessárias para a avaliação automatizada deste desafio. As configurações devem possuir o seguinte formato: */
 
 DROP DATABASE IF EXISTS SpotifyClone;
 
@@ -176,3 +166,14 @@ VALUES
 (3, 2),
 (3, 1),
 (4, 4);
+
+/* 
+Seu desafio agora é pegar toda a estrutura que você criou com base na planilha na seção anterior e transformá-la em código SQL. Os detalhes estão a seguir:
+
+Crie um banco com o nome de SpotifyClone;
+
+Providencie as queries necessárias para criar tabelas normalizadas que atendam aos requisitos descritos na seção anterior;
+
+Providencie as queries necessárias para popular as tabelas de acordo com os dados listados na seção anterior;
+
+Crie um arquivo de configurações desafio1.json, que mapeará em qual tabela e coluna se encontram as informações necessárias para a avaliação automatizada deste desafio. As configurações devem possuir o seguinte formato: */
