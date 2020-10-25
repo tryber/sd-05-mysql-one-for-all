@@ -8,5 +8,3 @@ WHERE SpotifyClone.historico.usuario_id = usuario_id INTO soma_musicas;
 RETURN soma_musicas;
 END $$
 DELIMITER ;
-
-
