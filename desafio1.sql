@@ -1,4 +1,4 @@
-DROP DATABASE IF EXISTS `SpotifyClone` ;
+-- DROP DATABASE IF EXISTS `SpotifyClone` ;
 CREATE DATABASE IF NOT EXISTS `SpotifyClone` ;
 USE `SpotifyClone` ;
 
