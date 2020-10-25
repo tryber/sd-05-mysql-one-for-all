@@ -37,12 +37,12 @@ INSERT INTO Plano(plano, valor_plano)
   VALUES ('gratuito', 0),
   ('familiar', 7.99),
   ('universitário', 5.99);
- 
- CREATE TABLE Artista(
- artista_id INT primary key auto_increment,
- artista_nome VARCHAR(15) NOT NULL
- ) engine = InnoDB;
- INSERT INTO Artista(artista_nome)
+  
+  CREATE TABLE Artista(
+  artista_id INT primary key auto_increment,
+  artista_nome VARCHAR(15) NOT NULL
+  ) engine = InnoDB;
+  INSERT INTO Artista(artista_nome)
   VALUES ('Walter Phoenix'),
   ('Peter Strong'),
   ('Lance Day'),
@@ -113,4 +113,3 @@ INSERT INTO Seguidores(artista_id, usuario_id)
   (2,3),
   (1,3),
   (4,4);
- 
