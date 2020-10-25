@@ -3,6 +3,19 @@ DROP DATABASE IF EXISTS SpotifyClone;
 CREATE DATABASE SpotifyClone;
 USE SpotifyClone;
 
+
+CREATE TABLE Plano (
+plano_id INT primary key auto_increment,
+plano VARCHAR(15) not null,
+valor_plano DECIMAL(3,2)
+) engine = InnoDB;
+
+INSERT INTO Plano (plano, valor_plano)
+VALUES
+  ('gratuito', 0),
+  ('familiar', 7.99),
+  ('universitário', 5.99);
+
 CREATE TABLE Usuário (
 usuario_id INT PRIMARY KEY auto_increment,
 usuario VARCHAR(30) NOT NULL,
@@ -18,6 +31,18 @@ VALUES
   ('Bill', 20, 3),
   ('Roger', 45, 1);
 
+CREATE TABLE Artista (
+artista_id INT primary key auto_increment,
+artista_nome VARCHAR(40) NOT NULL
+) engine = InnoDB;
+
+INSERT INTO Artista(artista_nome)
+VALUES
+  ('Walter Phoenix'),
+  ('Peter Strong'),
+  ('Lance Day'),
+  ('Freedie Shannon');
+
 CREATE TABLE Album (
 album_id INT primary key auto_increment,
 album VARCHAR(40) not null,
@@ -32,30 +57,6 @@ VALUES
   ('Hallowed Steam', 2),
   ('Incandescent', 3),
   ('Temporary Culture', 4);
-
-CREATE TABLE Plano (
-plano_id INT primary key auto_increment,
-plano VARCHAR(15) not null,
-valor_plano DECIMAL(3,2)
-) engine = InnoDB;
-
-INSERT INTO Plano (plano, valor_plano)
-VALUES
-  ('gratuito', 0),
-  ('familiar', 7.99),
-  ('universitário', 5.99);
-  
-CREATE TABLE Artista (
-artista_id INT primary key auto_increment,
-artista_nome VARCHAR(40) NOT NULL
-) engine = InnoDB;
-
-INSERT INTO Artista(artista_nome)
-VALUES
-  ('Walter Phoenix'),
-  ('Peter Strong'),
-  ('Lance Day'),
-  ('Freedie Shannon');
 
 CREATE TABLE Canções (
 cancoes_id INT primary key auto_increment,

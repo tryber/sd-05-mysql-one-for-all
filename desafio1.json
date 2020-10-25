@@ -1,7 +1,7 @@
 {
   "coluna_usuario": "usuario",
   "tabela_que_contem_usuario": "Usuário",
-  "coluna_plano": "plano",
+  "coluna_plano": "plano_id",
   "tabela_que_contem_plano": "Plano",
   "coluna_historico_de_reproducoes": "cancoes_id",
   "tabela_que_contem_historico_de_reproducoes": "Historico",
