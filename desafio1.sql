@@ -1,3 +1,5 @@
+DROP DATABASE IF EXISTS SpotifyClone;
+
 CREATE DATABASE SpotifyClone;
 USE SpotifyClone;
 
@@ -29,9 +31,9 @@ INSERT INTO Album(album, artista_id)
   ('Temporary Culture', 4);
 
 CREATE TABLE Plano(
-plano_id INT primary key auto_increment,
-plano VARCHAR(15) not null,
-valor_plano DECIMAL(3,2)
+`plano_id` INT primary key auto_increment,
+`plano` VARCHAR(15) not null,
+`valor_plano` DECIMAL(3,2)
 ) engine = InnoDB;
 INSERT INTO Plano(plano, valor_plano)
   VALUES ('gratuito', 0),
