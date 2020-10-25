@@ -3,3 +3,5 @@ SELECT COUNT(DISTINCT C.id) AS 'cancoes',  COUNT(DISTINCT A.id) AS 'artistas', C
 FROM SpotifyClone.cancao C,
 SpotifyClone.artista A,
 SpotifyClone.album AL;
+
+-- select * from estatisticas_musicais;
