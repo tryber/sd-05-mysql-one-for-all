@@ -6,6 +6,3 @@ ON U.id = HR.usuario_id
 INNER JOIN SpotifyClone.cancao AS C
 ON HR.cancao_id = C.id
 ORDER BY U.nome_usuario ASC, C.nome_cancao ASC;
-
--- SELECT * FROM historico_reproducao_usuarios;
--- DROP VIEW historico_reproducao_usuarios;
