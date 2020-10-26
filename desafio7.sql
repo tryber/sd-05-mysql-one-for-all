@@ -5,4 +5,4 @@ FROM SpotifyClone.artistas AS A
 JOIN SpotifyClone.albuns AS AB ON A.artist_id = AB.artistas_artist_id
 JOIN SpotifyClone.seguindo_artista AS S ON S.artist_id = A.artist_id
 GROUP BY artista,album
-ORDER BY seguidores DESC;
+ORDER BY seguidores DESC,artista, album;
