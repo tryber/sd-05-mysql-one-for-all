@@ -383,7 +383,7 @@ describe('Queries de deleção', () => {
     try {
       await importer.import('./desafio1.sql');
     }
-    catch(error) {
+    catch (error) {
       console.log('Erro ao restaurar o dump!');
     }
 
