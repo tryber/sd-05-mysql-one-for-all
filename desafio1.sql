@@ -26,7 +26,9 @@ CREATE TABLE cancoes(
 cancao_id INT UNIQUE AUTO_INCREMENT NOT NULL PRIMARY KEY,
 nome VARCHAR(100) NOT NULL,
 album_id INT NOT NULL,
-FOREIGN KEY(album_id) REFERENCES albuns(album_id)
+artista_id INT NOT NULL,
+FOREIGN KEY(album_id) REFERENCES albuns(album_id),
+FOREIGN KEY(artista_id) REFERENCES artistas(artista_id)
 ) engine = InnoDB;
 
 CREATE TABLE usuarios(
@@ -74,26 +76,26 @@ VALUES
 ("Incandescent", 3),
 ("Temporary Culture", 4);
 
-INSERT INTO cancoes(nome, album_id)
+INSERT INTO cancoes(nome, album_id, artista_id)
 VALUES
-("Soul For Us", 1),
-("Reflections Of Magic", 1),
-("Dance With Her Own", 1),
-("Troubles Of My Inner Fire", 2),
-("Time Fireworks", 2),
-("Magic Circus", 3),
-("Honey, So Do I", 3),
-("Sweetie, Let's Go Wild", 3),
-("She Knows", 3),
-("Fantasy For Me", 4),
-("Celebration Of More", 4),
-("Rock His Everything", 4),
-("Home Forever", 4),
-("Diamond Power", 4),
-("Honey, Let's Be Silly", 4),
-("Thang Of Thunder", 5),
-("Words Of Her Life", 5),
-("Without My Streets", 5);
+("Soul For Us", 1, 1),
+("Reflections Of Magic", 1, 1),
+("Dance With Her Own", 1, 1),
+("Troubles Of My Inner Fire", 2, 1),
+("Time Fireworks", 2, 1),
+("Magic Circus", 3, 2),
+("Honey, So Do I", 3, 2),
+("Sweetie, Let's Go Wild", 3, 2),
+("She Knows", 3, 2),
+("Fantasy For Me", 4, 3),
+("Celebration Of More", 4, 3),
+("Rock His Everything", 4, 3),
+("Home Forever", 4, 3),
+("Diamond Power", 4, 3),
+("Honey, Let's Be Silly", 4, 3),
+("Thang Of Thunder", 5, 4),
+("Words Of Her Life", 5, 4),
+("Without My Streets", 5, 4);
 
 INSERT INTO usuarios(nome, idade, plano_id)
 VALUES
