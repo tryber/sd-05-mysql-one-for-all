@@ -102,7 +102,7 @@ VALUES
 ("Words Of Her Life", 5),
 ("Without My Streets", 5);
 
-INSERT INTO historico_reproducoes (usuario_id, cancoes_id)
+INSERT INTO n (usuario_id, cancoes_id)
 VALUES
 (1, 1),
 (1, 6),
