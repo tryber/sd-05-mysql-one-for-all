@@ -2,7 +2,7 @@ DROP DATABASE IF EXISTS SpotifyClone;
 
 create database SpotifyClone;
 
-use SpotifyClone;
+USE SpotifyClone;
 
 CREATE TABLE usuario(
   USUARIO_ID INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
