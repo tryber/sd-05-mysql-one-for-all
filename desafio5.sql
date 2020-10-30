@@ -1,0 +1,8 @@
+CREATE VIEW top_2_hits_do_momento AS
+SELECT c.CANCOES AS 'cancao', COUNT(h.USUARIO_ID) AS 'reproducoes'
+FROM SpotifyClone.historico AS h
+INNER JOIN cancoes AS c
+ON c.CANCOES_ID = h.CANCOES_ID
+GROUP BY h.CANCOES_ID
+ORDER BY COUNT(h.USUARIO_ID) DESC, CANCOES
+LIMIT 2;
