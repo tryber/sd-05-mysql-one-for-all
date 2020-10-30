@@ -1,3 +1,4 @@
+-- desafio 11
 CREATE VIEW cancoes_premium AS
 SELECT c.name as nome,
 COUNT(*) AS reproducoes
