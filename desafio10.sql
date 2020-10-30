@@ -1,3 +1,4 @@
+-- desafio 10
 DELIMITER $$
 CREATE FUNCTION quantidade_musicas_no_historico(user VARCHAR
 (25)) RETURNS INTEGER
