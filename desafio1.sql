@@ -4,30 +4,31 @@ create database SpotifyClone;
 
 USE SpotifyClone;
 
-CREATE TABLE usuario(
-  USUARIO_ID INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  USUARIO VARCHAR(50),
-  IDADE INT(3),
-  PLANO_ID INT(2),
-  FOREIGN KEY(PLANO_ID) REFERENCES plano(PLANO_ID)
-);
-
 CREATE TABLE plano(
   PLANO_ID INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
   PLANO VARCHAR(20),
-  VALOR_PLANO INT(5)
+  VALOR_PLANO INT
 );
 
-CREATE TABLE historico(
-  HISTORICO_DE_REPRODUCOES_ID INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  HISTORICO_DE_REPRODUCOES VARCHAR(100),
-  USUARIO_ID INT,
-  FOREIGN KEY(USUARIO_ID) REFERENCES usuario(USUARIO_ID)
+CREATE TABLE usuario(
+  USUARIO_ID INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  USUARIO VARCHAR(50),
+  IDADE INT,
+  PLANO_ID INT,
+  FOREIGN KEY(PLANO_ID) REFERENCES plano(PLANO_ID)
 );
 
 CREATE TABLE cancoes(
   CANCOES_ID INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
   CANCOES VARCHAR(100)
+);
+
+CREATE TABLE historico(
+  HISTORICO_DE_REPRODUCOES_ID INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  CANCOES_ID INT,
+  USUARIO_ID INT,
+  FOREIGN KEY(CANCOES_ID) REFERENCES cancoes(CANCOES_ID),
+  FOREIGN KEY(USUARIO_ID) REFERENCES usuario(USUARIO_ID)
 );
 
 CREATE TABLE album(
@@ -56,31 +57,18 @@ CREATE TABLE seguindo_artista(
     FOREIGN KEY(USUARIO_ID) REFERENCES usuario(USUARIO_ID)
 );
 
-INSERT INTO usuario (USUARIO_ID, USUARIO, IDADE, PLANO_ID)
+INSERT INTO plano (PLANO, VALOR_PLANO)
 VALUES
-(1, 'Thati', 23, 1),
-(2, 'Cintia', 35, 2),
-(3, 'Bill', 20, 3),
-(4, 'Roger', 45, 1);
+('gratuito', 0),
+('familiar',	7.99),
+('universitário', 5.99);
 
-INSERT INTO plano (PLANO_ID, PLANO, VALOR_PLANO)
+INSERT INTO usuario (USUARIO, IDADE, PLANO_ID)
 VALUES
-(1, 'gratuito', 0),
-(2, 'familiar',	7.99),
-(3, 'universitário', 5.99);
-
-INSERT INTO historico (HISTORICO_DE_REPRODUCOES_ID, HISTORICO_DE_REPRODUCOES, USUARIO_ID)
-VALUES
-(1, 'Soul For Us', 1),
-(2, 'Magic Circus', 1),
-(3, 'Diamond Power', 1),
-(4, 'Home Forever', 2),
-(5, 'Words Of Her Life', 2),
-(6, 'Troubles Of My Inner Fire', 3),
-(7, 'Thang Of Thunder', 3),
-(8, 'Dance With Her Own', 4),
-(9, 'Without My Streets', 4),
-(10, 'Celebration Of More', 4);
+('Thati', 23, 1),
+('Cintia', 35, 2),
+('Bill', 20, 3),
+('Roger', 45, 1);
 
 INSERT INTO cancoes (CANCOES_ID, CANCOES)
 VALUES
@@ -102,6 +90,19 @@ VALUES
 (16, "Thang Of Thunder"),
 (17, "Words Of Her Life"),
 (18, "Without My Streets");
+
+INSERT INTO historico (CANCOES_ID, USUARIO_ID)
+VALUES
+(1, 1),
+(6, 1),
+(14, 1),
+(13, 2),
+(17, 2),
+(4, 3),
+(16, 3),
+(3, 4),
+(18, 4),
+(11, 4);
 
 INSERT INTO album (ALBUM_ID, NAME_ALBUM)
 VALUES
@@ -139,7 +140,7 @@ VALUES
 (17, 5, 2),
 (18, 5, 2);
 
-INSERT INTO fk_seguidores (ARTISTA_ID, USUARIO_ID)
+INSERT INTO seguindo_artista (ARTISTA_ID, USUARIO_ID)
 VALUES
 (1, 1),
 (2, 1),
