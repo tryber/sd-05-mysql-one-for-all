@@ -1,0 +1,10 @@
+CREATE VIEW cancoes_premium AS
+SELECT c.CANCOES AS 'nome', COUNT(h.USUARIO_ID) AS 'reproducoes'
+FROM SpotifyClone.historico AS h
+INNER JOIN cancoes AS c
+ON c.CANCOES_ID = h.CANCOES_ID
+INNER JOIN usuario AS u
+ON u.USUARIO_ID = h.USUARIO_ID
+WHERE u.PLANO_ID IN (2, 3)
+GROUP BY h.CANCOES_ID
+ORDER BY c.CANCOES;
