@@ -4,72 +4,59 @@ CREATE DATABASE SpotifyClone;
 
 USE SpotifyClone;
 
-CREATE TABLE `planos` (
-  `plano_id` INT UNIQUE AUTO_INCREMENT NOT NULL,,
-  `plano` VARCHAR(45) NOT NULL,
-  `valor_plano` DECIMAL(5,2) NOT NULL,
-  PRIMARY KEY (`plano_id`))
-ENGINE = InnoDB;
+CREATE TABLE `planos`(
+    `plano_id` INT UNIQUE AUTO_INCREMENT NOT NULL,
+    `plano` VARCHAR(45) NOT NULL,
+    `valor` DECIMAL(5,2) NOT NULL,
+    PRIMARY KEY (`plano_id`)
+) engine = InnoDB;
 
-CREATE TABLE `usuarios` (
-  `usuario_id` INT UNIQUE AUTO_INCREMENT NOT NULL,
-  `usuario` VARCHAR(45) NOT NULL,
-  `idade` INT NOT NULL,
-  `plano_id` INT NOT NULL,
-  PRIMARY KEY (`usuario_id`),
-  CONSTRAINT `fk_plano_id`
-    FOREIGN KEY (`plano_id`)
-    REFERENCES `SpotifyClone`.`planos` (`plano_id`)
-) ENGINE = InnoDB;
+CREATE TABLE `usuarios`(
+    `usuario_id` INT UNIQUE AUTO_INCREMENT NOT NULL,
+    `usuario` VARCHAR(45) NOT NULL,
+    `idade` INT NOT NULL,
+    `plano_id` INT NOT NULL,
+    PRIMARY KEY (`usuario_id`),
+    CONSTRAINT `fk_plano_id_usuario` FOREIGN KEY (`plano_id`) REFERENCES `planos` (`plano_id`)
+) engine = InnoDB;
 
-CREATE TABLE `artistas` (
-  `artista_id` INT UNIQUE AUTO_INCREMENT NOT NULL,
-  `artista` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`artista_id`))
-ENGINE = InnoDB;
+CREATE TABLE `artistas`(
+    `artista_id` INT UNIQUE AUTO_INCREMENT NOT NULL,
+    `artista` VARCHAR(45) NOT NULL,
+    PRIMARY KEY (`artista_id`)
+) engine = InnoDB;
 
-CREATE TABLE `albuns` (
-  `album_id` INT UNIQUE AUTO_INCREMENT NOT NULL,
-  `album` VARCHAR(45) NOT NULL,
-  `artista_id` INT NOT NULL,
-  PRIMARY KEY (`album_id`),
-  CONSTRAINT `fk_albuns_artista_id`
-    FOREIGN KEY (`artista_id`)
-    REFERENCES `SpotifyClone`.`artistas` (`artista_id`)
-) ENGINE = InnoDB;
+CREATE TABLE `albuns`(
+    `album_id` INT UNIQUE AUTO_INCREMENT NOT NULL,
+    `album` VARCHAR(45) NOT NULL,
+    `artista_id` INT NOT NULL,
+    PRIMARY KEY (`album_id`),
+    CONSTRAINT `fk_artista_id_album` FOREIGN KEY (`artista_id`) REFERENCES `artistas` (`artista_id`)
+) engine = InnoDB;
 
-CREATE TABLE `cancoes` (
-  `cancao_id` INT UNIQUE AUTO_INCREMENT NOT NULL,
-  `cancao` VARCHAR(45) NOT NULL,
-  `album_id` INT NOT NULL,
-  PRIMARY KEY (`cancao_id`),
-  UNIQUE INDEX `cancao_UNIQUE` (`cancao` ASC) VISIBLE,
-  CONSTRAINT `fk_cancoes_album_id`
-    FOREIGN KEY (`album_id`)
-    REFERENCES `SpotifyClone`.`albuns` (`album_id`)
-) ENGINE = InnoDB;
+CREATE TABLE `cancoes`(
+    `cancao_id` INT UNIQUE AUTO_INCREMENT NOT NULL,
+    `cancao` VARCHAR(45) NOT NULL,
+    `album_id` INT NOT NULL,
+    PRIMARY KEY (`cancao_id`),
+    CONSTRAINT `fk_album_id_cancao` FOREIGN KEY (`album_id`) REFERENCES `albuns` (`album_id`)
+) engine = InnoDB;
 
 CREATE TABLE `historico_de_reproducoes` (
-  `usuario_id` INT NOT NULL,
-  `cancao_id` INT NOT NULL,
-  CONSTRAINT `fk_hdr_usuario_id`
-    FOREIGN KEY (`usuario_id`)
-    REFERENCES `SpotifyClone`.`usuarios` (`usuario_id`),
-  CONSTRAINT `fk_hdr_cancao_id`
-    FOREIGN KEY (`cancao_id`)
-    REFERENCES `SpotifyClone`.`cancoes` (`cancao_id`)
-) ENGINE = InnoDB;
+    `usuario_id` INT NOT NULL,
+    `cancao_id` INT NOT NULL,
+    PRIMARY KEY (`usuario_id`, `cancao_id`),
+    CONSTRAINT `fk_usuario_id_cancao` FOREIGN KEY (`usuario_id`) REFERENCES `usuarios` (`usuario_id`),
+    CONSTRAINT `fk_cancao_id_usuario` FOREIGN KEY (`cancao_id`) REFERENCES `cancoes` (`cancao_id`)
+) engine = InnoDB;
 
 CREATE TABLE `seguindo_artistas` (
-  `usuario_id` INT NOT NULL,
-  `artista_id` INT NOT NULL,
-  CONSTRAINT `fk_sa_usuario_id`
-    FOREIGN KEY (`usuario_id`)
-    REFERENCES `SpotifyClone`.`usuarios` (`usuario_id`),
-  CONSTRAINT `fk_sa_artista_id`
-    FOREIGN KEY (`artista_id`)
-    REFERENCES `SpotifyClone`.`artistas` (`artista_id`)
-) ENGINE = InnoDB;
+    `usuario_id` INT NOT NULL,
+    `artista_id` INT NOT NULL,
+    PRIMARY KEY (`usuario_id`, `artista_id`),
+    CONSTRAINT `fk_usuario_id_artista` FOREIGN KEY (`usuario_id`) REFERENCES `usuarios` (`usuario_id`),
+    CONSTRAINT `fk_artista_id_usuario` FOREIGN KEY (`artista_id`) REFERENCES `artistas` (`artista_id`)
+) engine = InnoDB;
 
 INSERT INTO planos (plano, valor_plano)
 VALUES
