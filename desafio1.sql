@@ -1,12 +1,9 @@
--- -----------------------------------------------------
--- Schema SpotifyClone
--- -----------------------------------------------------
+
 DROP DATABASE IF EXISTS SpotifyClone;
 CREATE DATABASE SpotifyClone;
 USE SpotifyClone;
--- -----------------------------------------------------
--- Table `SpotifyClone`.`planos`
--- -----------------------------------------------------
+
+
 CREATE TABLE IF NOT EXISTS `SpotifyClone`.`planos` (
   `plano_id` INT NOT NULL AUTO_INCREMENT,
   `plano` VARCHAR(45) NOT NULL,
@@ -14,10 +11,6 @@ CREATE TABLE IF NOT EXISTS `SpotifyClone`.`planos` (
   PRIMARY KEY (`plano_id`))
 ENGINE = InnoDB;
 
-
--- -----------------------------------------------------
--- Table `SpotifyClone`.`usuarios`
--- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `SpotifyClone`.`usuarios` (
   `usuario_id` INT NOT NULL AUTO_INCREMENT,
   `usuario` VARCHAR(45) NOT NULL,
@@ -31,20 +24,12 @@ CREATE TABLE IF NOT EXISTS `SpotifyClone`.`usuarios` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-
--- -----------------------------------------------------
--- Table `SpotifyClone`.`artistas`
--- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `SpotifyClone`.`artistas` (
   `artista_id` INT NOT NULL AUTO_INCREMENT,
   `artista` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`artista_id`))
 ENGINE = InnoDB;
 
-
--- -----------------------------------------------------
--- Table `SpotifyClone`.`albuns`
--- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `SpotifyClone`.`albuns` (
   `album_id` INT NOT NULL AUTO_INCREMENT,
   `album` VARCHAR(45) NOT NULL,
@@ -57,10 +42,6 @@ CREATE TABLE IF NOT EXISTS `SpotifyClone`.`albuns` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-
--- -----------------------------------------------------
--- Table `SpotifyClone`.`cancoes`
--- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `SpotifyClone`.`cancoes` (
   `cancao_id` INT NOT NULL AUTO_INCREMENT,
   `cancao` VARCHAR(45) NOT NULL,
@@ -74,10 +55,6 @@ CREATE TABLE IF NOT EXISTS `SpotifyClone`.`cancoes` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-
--- -----------------------------------------------------
--- Table `SpotifyClone`.`historico_de_reproducoes`
--- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `SpotifyClone`.`historico_de_reproducoes` (
   `usuario_id` INT NOT NULL,
   `cancao_id` INT NOT NULL,
@@ -93,10 +70,6 @@ CREATE TABLE IF NOT EXISTS `SpotifyClone`.`historico_de_reproducoes` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-
--- -----------------------------------------------------
--- Table `SpotifyClone`.`seguindo_artistas`
--- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `SpotifyClone`.`seguindo_artistas` (
   `usuario_id` INT NOT NULL,
   `artista_id` INT NOT NULL,
