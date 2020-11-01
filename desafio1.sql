@@ -20,9 +20,7 @@ CREATE TABLE `SpotifyClone`.`usuarios` (
   CONSTRAINT `fk_plano_id`
     FOREIGN KEY (`plano_id`)
     REFERENCES `SpotifyClone`.`planos` (`plano_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+) ENGINE = InnoDB;
 
 CREATE TABLE `SpotifyClone`.`artistas` (
   `artista_id` INT UNIQUE AUTO_INCREMENT NOT NULL,
@@ -38,9 +36,7 @@ CREATE TABLE `SpotifyClone`.`albuns` (
   CONSTRAINT `fk_albuns_artista_id`
     FOREIGN KEY (`artista_id`)
     REFERENCES `SpotifyClone`.`artistas` (`artista_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+) ENGINE = InnoDB;
 
 CREATE TABLE `SpotifyClone`.`cancoes` (
   `cancao_id` INT UNIQUE AUTO_INCREMENT NOT NULL,
@@ -51,39 +47,29 @@ CREATE TABLE `SpotifyClone`.`cancoes` (
   CONSTRAINT `fk_cancoes_album_id`
     FOREIGN KEY (`album_id`)
     REFERENCES `SpotifyClone`.`albuns` (`album_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+) ENGINE = InnoDB;
 
 CREATE TABLE `SpotifyClone`.`historico_de_reproducoes` (
   `usuario_id` INT NOT NULL,
   `cancao_id` INT NOT NULL,
   CONSTRAINT `fk_hdr_usuario_id`
     FOREIGN KEY (`usuario_id`)
-    REFERENCES `SpotifyClone`.`usuarios` (`usuario_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+    REFERENCES `SpotifyClone`.`usuarios` (`usuario_id`),
   CONSTRAINT `fk_hdr_cancao_id`
     FOREIGN KEY (`cancao_id`)
     REFERENCES `SpotifyClone`.`cancoes` (`cancao_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+) ENGINE = InnoDB;
 
 CREATE TABLE `SpotifyClone`.`seguindo_artistas` (
   `usuario_id` INT NOT NULL,
   `artista_id` INT NOT NULL,
   CONSTRAINT `fk_sa_usuario_id`
     FOREIGN KEY (`usuario_id`)
-    REFERENCES `SpotifyClone`.`usuarios` (`usuario_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+    REFERENCES `SpotifyClone`.`usuarios` (`usuario_id`),
   CONSTRAINT `fk_sa_artista_id`
     FOREIGN KEY (`artista_id`)
     REFERENCES `SpotifyClone`.`artistas` (`artista_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+) ENGINE = InnoDB;
 
 INSERT INTO planos (plano, valor_plano)
 VALUES
