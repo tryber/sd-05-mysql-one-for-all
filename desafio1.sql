@@ -1,17 +1,18 @@
 DROP DATABASE IF EXISTS SpotifyClone;
+
 CREATE DATABASE SpotifyClone;
+
 USE SpotifyClone;
 
-
 CREATE TABLE `SpotifyClone`.`planos` (
-  `plano_id` INT NOT NULL AUTO_INCREMENT,
+  `plano_id` INT UNIQUE AUTO_INCREMENT NOT NULL,,
   `plano` VARCHAR(45) NOT NULL,
   `valor_plano` DECIMAL(5,2) NOT NULL,
   PRIMARY KEY (`plano_id`))
 ENGINE = InnoDB;
 
 CREATE TABLE `SpotifyClone`.`usuarios` (
-  `usuario_id` INT NOT NULL AUTO_INCREMENT,
+  `usuario_id` INT UNIQUE AUTO_INCREMENT NOT NULL,
   `usuario` VARCHAR(45) NOT NULL,
   `idade` INT NOT NULL,
   `plano_id` INT NOT NULL,
@@ -24,13 +25,13 @@ CREATE TABLE `SpotifyClone`.`usuarios` (
 ENGINE = InnoDB;
 
 CREATE TABLE `SpotifyClone`.`artistas` (
-  `artista_id` INT NOT NULL AUTO_INCREMENT,
+  `artista_id` INT UNIQUE AUTO_INCREMENT NOT NULL,
   `artista` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`artista_id`))
 ENGINE = InnoDB;
 
 CREATE TABLE `SpotifyClone`.`albuns` (
-  `album_id` INT NOT NULL AUTO_INCREMENT,
+  `album_id` INT UNIQUE AUTO_INCREMENT NOT NULL,
   `album` VARCHAR(45) NOT NULL,
   `artista_id` INT NOT NULL,
   PRIMARY KEY (`album_id`),
@@ -42,7 +43,7 @@ CREATE TABLE `SpotifyClone`.`albuns` (
 ENGINE = InnoDB;
 
 CREATE TABLE `SpotifyClone`.`cancoes` (
-  `cancao_id` INT NOT NULL AUTO_INCREMENT,
+  `cancao_id` INT UNIQUE AUTO_INCREMENT NOT NULL,
   `cancao` VARCHAR(45) NOT NULL,
   `album_id` INT NOT NULL,
   PRIMARY KEY (`cancao_id`),
