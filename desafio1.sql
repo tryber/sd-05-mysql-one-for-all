@@ -1,17 +1,16 @@
-
 DROP DATABASE IF EXISTS SpotifyClone;
 CREATE DATABASE SpotifyClone;
 USE SpotifyClone;
 
 
-CREATE TABLE IF NOT EXISTS `SpotifyClone`.`planos` (
+CREATE TABLE `SpotifyClone`.`planos` (
   `plano_id` INT NOT NULL AUTO_INCREMENT,
   `plano` VARCHAR(45) NOT NULL,
   `valor_plano` DECIMAL(5,2) NOT NULL,
   PRIMARY KEY (`plano_id`))
 ENGINE = InnoDB;
 
-CREATE TABLE IF NOT EXISTS `SpotifyClone`.`usuarios` (
+CREATE TABLE `SpotifyClone`.`usuarios` (
   `usuario_id` INT NOT NULL AUTO_INCREMENT,
   `usuario` VARCHAR(45) NOT NULL,
   `idade` INT NOT NULL,
@@ -24,13 +23,13 @@ CREATE TABLE IF NOT EXISTS `SpotifyClone`.`usuarios` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-CREATE TABLE IF NOT EXISTS `SpotifyClone`.`artistas` (
+CREATE TABLE `SpotifyClone`.`artistas` (
   `artista_id` INT NOT NULL AUTO_INCREMENT,
   `artista` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`artista_id`))
 ENGINE = InnoDB;
 
-CREATE TABLE IF NOT EXISTS `SpotifyClone`.`albuns` (
+CREATE TABLE `SpotifyClone`.`albuns` (
   `album_id` INT NOT NULL AUTO_INCREMENT,
   `album` VARCHAR(45) NOT NULL,
   `artista_id` INT NOT NULL,
@@ -42,7 +41,7 @@ CREATE TABLE IF NOT EXISTS `SpotifyClone`.`albuns` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-CREATE TABLE IF NOT EXISTS `SpotifyClone`.`cancoes` (
+CREATE TABLE `SpotifyClone`.`cancoes` (
   `cancao_id` INT NOT NULL AUTO_INCREMENT,
   `cancao` VARCHAR(45) NOT NULL,
   `album_id` INT NOT NULL,
@@ -55,7 +54,7 @@ CREATE TABLE IF NOT EXISTS `SpotifyClone`.`cancoes` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-CREATE TABLE IF NOT EXISTS `SpotifyClone`.`historico_de_reproducoes` (
+CREATE TABLE `SpotifyClone`.`historico_de_reproducoes` (
   `usuario_id` INT NOT NULL,
   `cancao_id` INT NOT NULL,
   CONSTRAINT `fk_hdr_usuario_id`
@@ -70,7 +69,7 @@ CREATE TABLE IF NOT EXISTS `SpotifyClone`.`historico_de_reproducoes` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-CREATE TABLE IF NOT EXISTS `SpotifyClone`.`seguindo_artistas` (
+CREATE TABLE `SpotifyClone`.`seguindo_artistas` (
   `usuario_id` INT NOT NULL,
   `artista_id` INT NOT NULL,
   CONSTRAINT `fk_sa_usuario_id`
