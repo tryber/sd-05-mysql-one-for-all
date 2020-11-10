@@ -90,7 +90,7 @@ CREATE TABLE IF NOT EXISTS `SpotifyClone`.`usuario_has_artista` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-INSERT INTO plano (plano, valor_plano)
+INSERT INTO plano (valor_plano, nome_plano)
 VALUES
   ('gratuito', 0.00),
   ('familiar', 7.99),
