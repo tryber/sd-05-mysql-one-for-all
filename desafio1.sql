@@ -30,10 +30,9 @@ CREATE TABLE IF NOT EXISTS `SpotifyClone`.`artistas` (
 ENGINE = InnoDB;
 
 CREATE TABLE IF NOT EXISTS `SpotifyClone`.`albuns` (
-  `id` INT NOT NULL AUTO_INCREMENT,
+  `id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
   `nome_album` VARCHAR(45) NOT NULL,
   `artistas_id` INT NOT NULL,
-	PRIMARY KEY (`id`),
     FOREIGN KEY (`artistas_id`)
     REFERENCES `artistas`(`id`)
     ON DELETE NO ACTION
@@ -41,10 +40,9 @@ CREATE TABLE IF NOT EXISTS `SpotifyClone`.`albuns` (
 ENGINE = InnoDB;
 
 CREATE TABLE IF NOT EXISTS `SpotifyClone`.`cancoes` (
-  `id` INT NOT NULL AUTO_INCREMENT,
+  `id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
   `nome_cancoes` VARCHAR(45) NOT NULL,
   `albuns_id` INT NOT NULL,
-	PRIMARY KEY (`id`),
     FOREIGN KEY (`albuns_id`)
     REFERENCES `albuns`(`id`)
     ON DELETE NO ACTION
@@ -52,10 +50,9 @@ CREATE TABLE IF NOT EXISTS `SpotifyClone`.`cancoes` (
 ENGINE = InnoDB;
 
 CREATE TABLE IF NOT EXISTS `SpotifyClone`.`seguindo_artistas` (
-  `id` INT NOT NULL AUTO_INCREMENT,
+  `id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
   `usuarios_id` INT NOT NULL,
   `artistas_id` INT NOT NULL,
-	PRIMARY KEY (`id`),
     FOREIGN KEY (`usuarios_id`)id
     REFERENCES `usuarios`(`id`)
     ON DELETE NO ACTION
