@@ -4,42 +4,42 @@ CREATE SCHEMA IF NOT EXISTS `SpotifyClone`;
 
 USE `SpotifyClone`;
 
-CREATE TABLE IF NOT EXISTS `SpotifyClone`.`plano` (
+CREATE TABLE IF NOT EXISTS `SpotifyClone`.`planos` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `valor_plano` DECIMAL(5,2) NULL,
   `nome_plano` VARCHAR(45) NULL,
+  `valor_plano` DECIMAL(5,2) NULL,
   PRIMARY KEY (`id`)
 )
 ENGINE = InnoDB;
 
-CREATE TABLE IF NOT EXISTS `SpotifyClone`.`usuario` (
+CREATE TABLE IF NOT EXISTS `SpotifyClone`.`usuarios` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `usuarios` VARCHAR(45) NULL,
+  `usuario` VARCHAR(45) NULL,
   `idade` INT NULL,
   `plano_id` INT NOT NULL,
-  PRIMARY KEY (`id`, `plano_id`),
-  CONSTRAINT `fk_usuario_plano1`
-    FOREIGN KEY (`plano_id`)
-    REFERENCES `SpotifyClone`.`plano` (`id`)
+  PRIMARY KEY (`id`),
+    CONSTRAINT `fk_usuarios_planos`
+    FOREIGN KEY (`planos_id`)
+    REFERENCES `SpotifyClone`.`planos` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-CREATE TABLE IF NOT EXISTS `SpotifyClone`.`artista` (
+CREATE TABLE IF NOT EXISTS `SpotifyClone`.`artistas` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `artista` VARCHAR(45) NULL,
   PRIMARY KEY (`id`)
 )
 ENGINE = InnoDB;
 
-CREATE TABLE IF NOT EXISTS `SpotifyClone`.`album` (
+CREATE TABLE IF NOT EXISTS `SpotifyClone`.`albuns` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `nome_album` VARCHAR(45) NULL,
   `artista_id` INT NOT NULL,
+  CONSTRAINT `fk_albuns_artistas`
   PRIMARY KEY (`id`),
-  CONSTRAINT `fk_album_artista1`
-    FOREIGN KEY (`artista_id`)
-    REFERENCES `SpotifyClone`.`artista` (`id`)
+    FOREIGN KEY (`artistas_id`)
+    REFERENCES `SpotifyClone`.`artistas` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -48,69 +48,47 @@ CREATE TABLE IF NOT EXISTS `SpotifyClone`.`cancoes` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `nome_cancoes` VARCHAR(45) NULL,
   `album_id` INT NOT NULL,
+  CONSTRAINT `fk_cancoes_albuns`
   PRIMARY KEY (`id`),
-  CONSTRAINT `fk_cancoes_album1`
-    FOREIGN KEY (`album_id`)
-    REFERENCES `SpotifyClone`.`album` (`id`)
+    FOREIGN KEY (`albuns_id`)
+    REFERENCES `SpotifyClone`.`albuns` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-CREATE TABLE IF NOT EXISTS `SpotifyClone`.`usuario_has_cancoes` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `usuario_id` INT NOT NULL,
-  `cancoes_id` INT NOT NULL,
-  PRIMARY KEY (`id`),
-  CONSTRAINT `fk_usuario_has_cancoes_usuario1`
-    FOREIGN KEY (`usuario_id`)
-    REFERENCES `SpotifyClone`.`usuario` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_usuario_has_cancoes_cancoes1`
-    FOREIGN KEY (`cancoes_id`)
-    REFERENCES `SpotifyClone`.`cancoes` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-CREATE TABLE IF NOT EXISTS `SpotifyClone`.`usuario_has_artista` (
+CREATE TABLE IF NOT EXISTS `SpotifyClone`.`seguindo_artistas` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `usuario_id` INT NOT NULL,
   `artista_id` INT NOT NULL,
+  CONSTRAINT `fk_seguindo_artistas_usuarios`
   PRIMARY KEY (`id`),
-  CONSTRAINT `fk_usuario_has_artista_usuario1`
-    FOREIGN KEY (`usuario_id`)
-    REFERENCES `SpotifyClone`.`usuario` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_usuario_has_artista_artista1`
-    FOREIGN KEY (`artista_id`)
-    REFERENCES `SpotifyClone`.`artista` (`id`)
-    ON DELETE NO ACTION
+    FOREIGN KEY (`usuarios_id`)
+    REFERENCES `SpotifyClone`.`usuarios` (`id`)
+    ON DELETE NO ACTION,
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-INSERT INTO plano (valor_plano, nome_plano)
+INSERT INTO planos (valor_plano, nome_plano)
 VALUES
   ('gratuito', 0.00),
   ('familiar', 7.99),
   ('universitário', 5.99);
 
-INSERT INTO usuario (usuarios, idade, planos_id)
+INSERT INTO usuarios (usuario, idade, planos_id)
 VALUES
   ('Thati', 23, 1),
   ('Cintia', 35, 2),
   ('Bill', 20, 3),
   ('Roger', 45, 1);
 
-INSERT INTO artista (artista)
+INSERT INTO artistas (artista)
 VALUES
   ('Walter Phoenix'),
   ('Peter Strong'),
   ('Lance Day'),
   ('Freedie Shannon');
   
-INSERT INTO album (nome_album, artistas_id)
+INSERT INTO albuns (nome_album, artistas_id)
 VALUES
   ('Envious', 1),
   ('Exuberant', 1),
@@ -118,7 +96,7 @@ VALUES
   ('Incandescent', 3),
   ('Temporary Culture', 4);
 
-INSERT INTO cancoes (nome_cancoes, album_id)
+INSERT INTO cancoes (nome_cancoes, albuns_id)
 VALUES
   ('Soul For Us', 1),
   ('Reflections Of Magic', 1),
@@ -138,31 +116,3 @@ VALUES
   ('Thang Of Thunder', 5),
   ('Words Of Her Life', 5),
   ('Without My Streets', 5);
-
-INSERT INTO usuario_has_cancoes (usuario_id, cancoes_id)
-VALUES
-  (1, 1),
-  (1, 6),
-  (1, 14),
-  (1, 16),
-  (2, 13),
-  (2, 17),
-  (2, 2),
-  (2, 15),
-  (3, 4),
-  (3, 16),
-  (3, 6),
-  (4, 3),
-  (4, 18),
-  (4, 11);
-
-INSERT INTO usuario_has_artista (usuario_id, artista_id)
-VALUES
-  (1, 1),
-  (1, 4),
-  (1, 3),
-  (2, 1),
-  (2, 3),
-  (3, 2),
-  (3, 1),
-  (4, 4);
