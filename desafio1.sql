@@ -5,66 +5,64 @@ CREATE SCHEMA IF NOT EXISTS `SpotifyClone`;
 USE `SpotifyClone`;
 
 CREATE TABLE IF NOT EXISTS `SpotifyClone`.`planos` (
-  `id` INT NOT NULL AUTO_INCREMENT,
+  `id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
   `nome_plano` VARCHAR(45) NULL,
-  `valor_plano` DECIMAL(5,2) NULL,
-  PRIMARY KEY (`id`)
+  `valor_plano` DECIMAL(5,2) NULL
 )
 ENGINE = InnoDB;
 
 CREATE TABLE IF NOT EXISTS `SpotifyClone`.`usuarios` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `usuario` VARCHAR(45) NULL,
-  `idade` INT NULL,
-  `plano_id` INT NOT NULL,
-  PRIMARY KEY (`id`),
-    CONSTRAINT `fk_usuarios_planos`
+  `id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  `usuario` VARCHAR(45) NOT NULL,
+  `idade` INT NOT NULL,
+  `planos_id` INT,
     FOREIGN KEY (`planos_id`)
-    REFERENCES `SpotifyClone`.`planos` (`id`)
+    REFERENCES `planos`(`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 CREATE TABLE IF NOT EXISTS `SpotifyClone`.`artistas` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `artista` VARCHAR(45) NULL,
+  `artista` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id`)
 )
 ENGINE = InnoDB;
 
 CREATE TABLE IF NOT EXISTS `SpotifyClone`.`albuns` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `nome_album` VARCHAR(45) NULL,
-  `artista_id` INT NOT NULL,
-  CONSTRAINT `fk_albuns_artistas`
-  PRIMARY KEY (`id`),
+  `nome_album` VARCHAR(45) NOT NULL,
+  `artistas_id` INT NOT NULL,
+	PRIMARY KEY (`id`),
     FOREIGN KEY (`artistas_id`)
-    REFERENCES `SpotifyClone`.`artistas` (`id`)
+    REFERENCES `artistas`(`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 CREATE TABLE IF NOT EXISTS `SpotifyClone`.`cancoes` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `nome_cancoes` VARCHAR(45) NULL,
-  `album_id` INT NOT NULL,
-  CONSTRAINT `fk_cancoes_albuns`
-  PRIMARY KEY (`id`),
+  `nome_cancoes` VARCHAR(45) NOT NULL,
+  `albuns_id` INT NOT NULL,
+	PRIMARY KEY (`id`),
     FOREIGN KEY (`albuns_id`)
-    REFERENCES `SpotifyClone`.`albuns` (`id`)
+    REFERENCES `albuns`(`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 CREATE TABLE IF NOT EXISTS `SpotifyClone`.`seguindo_artistas` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `usuario_id` INT NOT NULL,
-  `artista_id` INT NOT NULL,
-  CONSTRAINT `fk_seguindo_artistas_usuarios`
-  PRIMARY KEY (`id`),
-    FOREIGN KEY (`usuarios_id`)
-    REFERENCES `SpotifyClone`.`usuarios` (`id`)
-    ON DELETE NO ACTION,
+  `usuarios_id` INT NOT NULL,
+  `artistas_id` INT NOT NULL,
+	PRIMARY KEY (`id`),
+    FOREIGN KEY (`usuarios_id`)id
+    REFERENCES `usuarios`(`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+    FOREIGN KEY (`artistas_id`)
+    REFERENCES `artistas`(`id`)
+    ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
