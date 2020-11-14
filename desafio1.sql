@@ -6,7 +6,7 @@ USE SpotifyClone;
 
 CREATE TABLE planos(
   id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  nome_plano VARCHAR(45) NOT NULL,
+  plano VARCHAR(45) NOT NULL,
   valor_plano DECIMAL(3,2) NOT NULL
 )
 ENGINE = InnoDB;
@@ -30,7 +30,7 @@ ENGINE = InnoDB;
 
 CREATE TABLE albuns(
   id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  nome_album VARCHAR(45) NOT NULL,
+  album VARCHAR(45) NOT NULL,
   artistas_id INT NOT NULL,
   FOREIGN KEY (artistas_id)
   REFERENCES artistas(id)
@@ -40,7 +40,7 @@ ENGINE = InnoDB;
 
 CREATE TABLE cancoes(
   id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  nome_cancoes VARCHAR(45) NOT NULL,
+  cancao VARCHAR(45) NOT NULL,
   albuns_id INT NOT NULL,
   FOREIGN KEY (albuns_id)
   REFERENCES albuns(id)
@@ -48,17 +48,20 @@ CREATE TABLE cancoes(
   ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-CREATE TABLE historico_de_cancoes(
+CREATE TABLE historico_de_reproducoes(
   usuarios_id INT NOT NULL,
   cancoes_id INT NOT NULL,
   PRIMARY KEY (usuarios_id, cancoes_id),
-  FOREIGN KEY (usuarios_id) REFERENCES usuarios(id),
-  FOREIGN KEY (cancoes_id) REFERENCES cancoes(id)
+  FOREIGN KEY (usuarios_id)
+  REFERENCES usuarios(id),
+  FOREIGN KEY (cancoes_id) 
+  REFERENCES cancoes(id)
 ) engine = InnoDB;
 
 CREATE TABLE seguindo_artistas(
   usuarios_id INT NOT NULL,
   artistas_id INT NOT NULL,
+  PRIMARY KEY (usuarios_id, artistas_id),
   FOREIGN KEY (usuarios_id)
   REFERENCES usuarios(id)
   ON DELETE NO ACTION
@@ -69,7 +72,7 @@ CREATE TABLE seguindo_artistas(
   ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-INSERT INTO planos (nome_plano, valor_plano)
+INSERT INTO planos (plano, valor_plano)
 VALUES
   ('gratuito', 0.00),
   ('familiar', 7.99),
@@ -89,7 +92,7 @@ VALUES
   ('Lance Day'),
   ('Freedie Shannon');
   
-INSERT INTO albuns (nome_album, artistas_id)
+INSERT INTO albuns (album, artistas_id)
 VALUES
   ('Envious', 1),
   ('Exuberant', 1),
@@ -97,7 +100,7 @@ VALUES
   ('Incandescent', 3),
   ('Temporary Culture', 4);
 
-INSERT INTO cancoes (nome_cancoes, albuns_id)
+INSERT INTO cancoes (cancao, albuns_id)
 VALUES
   ('Soul For Us', 1),
   ('Reflections Of Magic', 1),
@@ -118,7 +121,7 @@ VALUES
   ('Words Of Her Life', 5),
   ('Without My Streets', 5);
 
-INSERT INTO historico_de_cancoes (usuarios_id, cancoes_id)
+INSERT INTO historico_de_reproducoes (usuarios_id, cancoes_id)
 VALUES
   (1, 1),
   (1, 6),
