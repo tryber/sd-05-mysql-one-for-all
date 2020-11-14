@@ -23,9 +23,8 @@ CREATE TABLE IF NOT EXISTS `SpotifyClone`.`usuarios` (
 ENGINE = InnoDB;
 
 CREATE TABLE IF NOT EXISTS `SpotifyClone`.`artistas` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `artista` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`id`)
+  `id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  `artista` VARCHAR(45) NOT NULL
 )
 ENGINE = InnoDB;
 
@@ -50,10 +49,9 @@ CREATE TABLE IF NOT EXISTS `SpotifyClone`.`cancoes` (
 ENGINE = InnoDB;
 
 CREATE TABLE IF NOT EXISTS `SpotifyClone`.`seguindo_artistas` (
-  `id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
   `usuarios_id` INT NOT NULL,
   `artistas_id` INT NOT NULL,
-    FOREIGN KEY (`usuarios_id`)id
+    FOREIGN KEY (`usuarios_id`)
     REFERENCES `usuarios`(`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
@@ -63,7 +61,7 @@ CREATE TABLE IF NOT EXISTS `SpotifyClone`.`seguindo_artistas` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-INSERT INTO planos (valor_plano, nome_plano)
+INSERT INTO planos (nome_plano, valor_plano)
 VALUES
   ('gratuito', 0.00),
   ('familiar', 7.99),
