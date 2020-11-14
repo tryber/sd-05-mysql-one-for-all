@@ -1,6 +1,6 @@
 DROP DATABASE IF EXISTS SpotifyClone;
 
-CREATE SCHEMA IF NOT EXISTS `SpotifyClone`;
+CREATE DATABASE SpotifyClone;
 
 USE `SpotifyClone`;
 
@@ -47,6 +47,14 @@ CREATE TABLE IF NOT EXISTS `SpotifyClone`.`cancoes` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
+
+CREATE TABLE `SpotifyClone`.`historico_de_cancoes` (
+  `usuarios_id` INT NOT NULL,
+  `cancoes_id` INT NOT NULL,
+    PRIMARY KEY (usuarios_id, cancoes_id),
+    FOREIGN KEY (usuarios_id) REFERENCES usuarios(id),
+    FOREIGN KEY (cancoes_id) REFERENCES cancoes(id)
+) engine = InnoDB;
 
 CREATE TABLE IF NOT EXISTS `SpotifyClone`.`seguindo_artistas` (
   `usuarios_id` INT NOT NULL,
@@ -109,3 +117,32 @@ VALUES
   ('Thang Of Thunder', 5),
   ('Words Of Her Life', 5),
   ('Without My Streets', 5);
+
+INSERT INTO historico_de_cancoes (usuarios_id, cancoes_id)
+VALUES
+  (1, 1),
+  (1, 6),
+  (1, 14),
+  (1, 16),
+  (2, 13),
+  (2, 17),
+  (2, 2),
+  (2, 15),
+  (3, 4),
+  (3, 16),
+  (3, 6),
+  (4, 3),
+  (4, 18),
+  (4, 11);
+
+INSERT INTO seguindo_artistas (usuarios_id, artistas_id)
+VALUES
+  (1, 1),
+  (1, 4),
+  (1, 3),
+  (2, 1),
+  (2, 3),
+  (3, 2),
+  (3, 1),
+  (4, 4);
+  
