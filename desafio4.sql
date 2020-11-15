@@ -1,6 +1,6 @@
 CREATE VIEW top_3_artistas AS
 SELECT
-art.artistas AS artista,
+art.artista AS artista,
 COUNT(*) AS seguidores
 FROM
 SpotifyClone.artistas AS art
