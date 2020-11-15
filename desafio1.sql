@@ -66,14 +66,14 @@ VALUES
   ('Bill', 20, 3),
   ('Roger', 45, 1);
   
-INSERT INTO artista (nome_artista)
+INSERT INTO artistas (nome_artista)
 VALUES
   ('Walter Phoenix'),
   ('Peter Strong'),
   ('Lance Day'),
   ('Freedie Shannon');
   
-INSERT INTO album (titulo_album, artista_id)
+INSERT INTO albuns (titulo_album, artista_id)
 VALUES
   ('Envious', 1),
   ('Exuberant', 1),
@@ -81,7 +81,7 @@ VALUES
   ('Incandescent', 3),
   ('Temporary Culture', 4);
 
-INSERT INTO cancao (titulo_cancao, album_id)
+INSERT INTO cancoes (titulo_cancao, album_id)
 VALUES
   ('Soul For Us', 1),
   ('Reflections Of Magic', 1),
