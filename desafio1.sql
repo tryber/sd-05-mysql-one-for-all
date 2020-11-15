@@ -27,21 +27,21 @@ CREATE TABLE albuns(
     album_id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     titulo_album VARCHAR(20) NOT NULL,
     artista_id INT NOT NULL,
-    FOREIGN KEY(artista_id) REFERENCES artista(artista_id)
+    FOREIGN KEY(artista_id) REFERENCES artistas(artista_id)
 ) engine = InnoDB;
 
 CREATE TABLE cancoes(
     cancao_id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     titulo_cancao VARCHAR(100) NOT NULL,
     album_id INT NOT NULL,
-    FOREIGN KEY(album_id) REFERENCES album(album_id)
+    FOREIGN KEY(album_id) REFERENCES albuns(album_id)
 ) engine = InnoDB;
 
 CREATE TABLE historico_reproducao(
     usuario_id INT NOT NULL,
     cancao_id INT NOT NULL,    
     FOREIGN KEY(usuario_id) REFERENCES usuario(usuario_id),
-    FOREIGN KEY(cancao_id) REFERENCES cancao(cancao_id),
+    FOREIGN KEY(cancao_id) REFERENCES cancoes(cancao_id),
     PRIMARY KEY(usuario_id, cancao_id)
 ) engine = InnoDB;
 
@@ -49,7 +49,7 @@ CREATE TABLE seguindo_artista(
     usuario_id INT NOT NULL,
     artista_id INT NOT NULL,    
     FOREIGN KEY(usuario_id) REFERENCES usuario(usuario_id),
-    FOREIGN KEY(artista_id) REFERENCES artista(artista_id),
+    FOREIGN KEY(artista_id) REFERENCES artistas(artista_id),
     PRIMARY KEY(usuario_id, artista_id)
 ) engine = InnoDB;
 
