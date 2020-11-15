@@ -18,19 +18,19 @@ CREATE TABLE usuario(
     FOREIGN KEY(plano_id) REFERENCES plano(plano_id)
 ) engine = InnoDB;
 
-CREATE TABLE artista(
+CREATE TABLE artistas(
     artista_id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     nome_artista VARCHAR(30) NOT NULL
 ) engine = InnoDB;
 
-CREATE TABLE album(
+CREATE TABLE albuns(
     album_id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     titulo_album VARCHAR(20) NOT NULL,
     artista_id INT NOT NULL,
     FOREIGN KEY(artista_id) REFERENCES artista(artista_id)
 ) engine = InnoDB;
 
-CREATE TABLE cancao(
+CREATE TABLE cancoes(
     cancao_id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     titulo_cancao VARCHAR(100) NOT NULL,
     album_id INT NOT NULL,
