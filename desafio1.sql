@@ -148,3 +148,6 @@ VALUES
   (3, 2),
   (3, 1),
   (4, 4);
+
+  -- cosntrução do projeto iniciou em diagramas como uma nova model no worbench
+  -- com apoio do Hugão Meu Ídolo. Refatorei sem diagramação por enfrentar dificuldade
