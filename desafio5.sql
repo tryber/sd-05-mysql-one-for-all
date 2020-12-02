@@ -5,5 +5,5 @@ FROM SpotifyClone.reproduction AS r
 INNER JOIN SpotifyClone.song AS s
 ON r.song_id = s.song_id
 GROUP BY r.song_id
-ORDER BY repoducoes DESC, cancao
+ORDER BY reproducoes DESC, cancao
 LIMIT 2;
