@@ -9,4 +9,3 @@ ON r.user_id = u.user_id
 WHERE u.plan_id IN (2,3)
 GROUP BY r.song_id
 ORDER BY nome;
- 
