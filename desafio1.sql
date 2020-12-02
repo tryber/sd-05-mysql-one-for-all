@@ -25,10 +25,8 @@ ENGINE = InnoDB;
 CREATE TABLE `artist`(
   `artist_id` INT UNIQUE AUTO_INCREMENT NOT NULL,
   `artist_name` VARCHAR(100) NOT NULL,
-  PRIMARY KEY (`artist_id`), 
+  PRIMARY KEY (`artist_id`)
 )
-ENGINE = InnoDB;
-
 ENGINE = InnoDB;
 
 CREATE TABLE `album`(
@@ -54,8 +52,7 @@ CREATE TABLE `follow_artist`(
   `artist_id` INT NOT NULL,
   PRIMARY KEY (`user_id`, `artist_id`),
   CONSTRAINT `fk_user_id_artist` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`),
-  CONSTRAINT `fk_artist_id_user` FOREIGN KEY (`artist_id`) REFERENCES `artist` (`artist_id`),
-)
+  CONSTRAINT `fk_artist_id_user` FOREIGN KEY (`artist_id`) REFERENCES `artist` (`artist_id`))
 ENGINE = InnoDB;
 
 CREATE TABLE `reproduction`(
@@ -63,8 +60,7 @@ CREATE TABLE `reproduction`(
   `song_id` INT NOT NULL,
   PRIMARY KEY (`user_id`, `song_id`),
   CONSTRAINT `fk_user_id_song` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`),
-  CONSTRAINT `fk_song_id_user` FOREIGN KEY (`song_id`) REFERENCES `song` (`song_id`),
-)
+  CONSTRAINT `fk_song_id_user` FOREIGN KEY (`song_id`) REFERENCES `song` (`song_id`))
 ENGINE = InnoDB;
 
 INSERT INTO plan (plan_name, cost)
@@ -102,7 +98,7 @@ VALUES
 ("Dance With Her Own", 1),
 ("Troubles Of My Inner Fire", 2),
 ("Time Fireworks", 2),
-("Magic Circus", 3)
+("Magic Circus", 3),
 ("Honey, So Do I", 3),
 ("Sweetie, Let's Go Wild", 3),
 ("She Knows", 3),
