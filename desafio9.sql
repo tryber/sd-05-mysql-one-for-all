@@ -8,4 +8,4 @@ INNER JOIN SpotifyClone.artist AS n
 ON n.artist_id = a.artist_id
 WHERE n.artist_name = nome;
 END 
-$$ DELIMETER;
+$$ DELIMITER;
