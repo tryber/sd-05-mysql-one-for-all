@@ -1,4 +1,4 @@
-CREATE VIEW perfil_artista AS
+CREATE VIEW perfil_artistas AS
 SELECT n.artist_name artista,
 a.album_name album,
 COUNT(s.artist_id) seguidores
